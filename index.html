@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Findly — Le comparateur de vêtements par IA</title>
+  <meta name="description" content="Findly compare des milliers de vêtements et chaussures sur tous les sites à partir d'une simple description en langage naturel. Meilleur prix, meilleur style, en une recherche." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <a href="#" class="logo" aria-label="Findly accueil">findly</a>
+    <nav>
+      <a href="#how">Comment ça marche</a>
+      <a href="#usecases">Cas d'usage</a>
+      <a href="#tech">La tech</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="en.html" class="lang-switch" aria-label="Switch to English">EN</a>
+      <button class="waitlist-btn" data-waitlist>Rejoindre la waitlist</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= 1. HERO ================= -->
+    <section class="hero reveal">
+      <p class="tag">🤖 des agents IA qui font le shopping à ta place</p>
+      <h1>
+        Décris le vêtement parfait.<br />
+        <span>Nos agents IA le trouvent sur tous les sites.</span>
+      </h1>
+      <p class="hero-text">
+        Tu décris ce que tu cherches, et une escouade d'<strong>agents IA</strong> part explorer des dizaines
+        de boutiques en temps réel. Ils <strong>trient, comparent et curent</strong> pour toi
+        les vêtements qui correspondent vraiment — prix, style, tailles et avis alignés. Zéro onglet à ouvrir.
+      </p>
+
+      <form class="search-card" id="demo" onsubmit="return false;">
+        <label for="prompt" class="search-label">Décris… ou dépose une photo ↓</label>
+        <textarea id="prompt" rows="3" placeholder="Ex : Des sneakers blanches minimalistes en cuir, semelle épaisse, look streetwear premium, moins de 120 €, pointure 43, dispo en 48h."></textarea>
+        <div class="image-drop" id="image-drop">
+          <input type="file" id="image-input" accept="image/*" hidden />
+          <span class="image-drop-label">📷 Tu as vu un vêtement qui te plaît ? <strong>Dépose une photo</strong> — nos agents retrouvent le même (ou l'équivalent) sur tous les sites.</span>
+          <span class="image-drop-file" id="image-file" hidden></span>
+        </div>
+        <div class="card-footer">
+          <span>Nos agents IA vont comparer, curer et te sortir les meilleures options en une recherche.</span>
+          <button id="try-btn" type="submit">Lancer les agents →</button>
+        </div>
+      </form>
+
+      <div class="quick-results" id="results" aria-live="polite">
+        <div class="result-item">👟 Sneakers cuir grainé blanc — semelle chunky — 3 boutiques, à partir de 89 €</div>
+        <div class="result-item">✨ Alternative repérée : modèle éco-cuir noté 4.7/5, livraison 24h</div>
+        <div class="result-item">💸 Meilleur prix détecté : -32 % vs prix moyen constaté sur 30 jours</div>
+      </div>
+
+      <div class="hero-stats">
+        <div><strong>50+</strong><span>boutiques scannées</span></div>
+        <div><strong>2 M+</strong><span>références indexées</span></div>
+        <div><strong>~3 s</strong><span>pour une comparaison</span></div>
+      </div>
+    </section>
+
+    <!-- ================= 2. LOGOS / SOCIAL PROOF ================= -->
+    <section class="logos reveal">
+      <p>Findly compare les prix chez</p>
+      <div class="logo-row">
+        <span>Zalando</span><span>ASOS</span><span>Zara</span><span>Nike</span>
+        <span>Vinted</span><span>Farfetch</span><span>Courir</span><span>+42 autres</span>
+      </div>
+    </section>
+
+    <!-- ================= 3. COMMENT ÇA MARCHE (tech) ================= -->
+    <section class="how reveal" id="how">
+      <div class="section-head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Tes agents IA s'occupent de tout, en 3 étapes</h2>
+        <p class="section-sub">Pas de filtres à cocher un par un. Tu parles, les agents IA font le reste.</p>
+      </div>
+      <div class="steps">
+        <article>
+          <span class="step-num">01</span>
+          <h3>Tu décris en langage naturel</h3>
+          <p>Marque, matière, coupe, budget, occasion, couleur exclue… Nos agents comprennent les nuances comme « look premium » ou « pas trop moulant ».</p>
+        </article>
+        <article>
+          <span class="step-num">02</span>
+          <h3>Les agents IA explorent & curent le web</h3>
+          <p>Plusieurs agents partent en parallèle fouiller les catalogues de dizaines de boutiques en temps réel, lisent les fiches produit et sélectionnent ce qui matche vraiment.</p>
+        </article>
+        <article>
+          <span class="step-num">03</span>
+          <h3>Tu compares et tu choisis</h3>
+          <p>Les agents te livrent une sélection curée : prix par boutique, historique de prix, avis agrégés, dispo des tailles — tout aligné côte à côte.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 4. USE CASE 1 (concret) ================= -->
+    <section class="usecase reveal" id="usecases">
+      <div class="section-head">
+        <p class="eyebrow">Cas d'usage</p>
+        <h2>Exemple : « je veux CETTE chaussure, au meilleur prix »</h2>
+        <p class="section-sub">Léa cherche une paire précise. Elle la décrit, Findly la retrouve partout et compare.</p>
+      </div>
+
+      <div class="usecase-body">
+        <div class="query-bubble">
+          <span class="bubble-label">La recherche de Léa</span>
+          <p>« Des Chelsea boots en cuir marron, bout légèrement carré, talon 4 cm, style minimaliste scandinave, budget max 160 €, pointure 39 dispo. »</p>
+        </div>
+
+        <div class="compare-table">
+          <div class="compare-row compare-head">
+            <span>Boutique</span><span>Prix</span><span>Avis</span><span>Avantage</span>
+          </div>
+          <div class="compare-row">
+            <span class="shop">NordicShoes</span>
+            <span class="price best">129 €<em>meilleur prix</em></span>
+            <span class="rating">★ 4.8</span>
+            <span class="perk">Livraison 48h + retour gratuit</span>
+          </div>
+          <div class="compare-row">
+            <span class="shop">Sarenza</span>
+            <span class="price">149 €</span>
+            <span class="rating">★ 4.6</span>
+            <span class="perk">Stock large, toutes pointures</span>
+          </div>
+          <div class="compare-row">
+            <span class="shop">Farfetch</span>
+            <span class="price">158 €</span>
+            <span class="rating">★ 4.7</span>
+            <span class="perk">Cuir pleine fleur, finition premium</span>
+          </div>
+          <div class="compare-row">
+            <span class="shop">Vinted (seconde main)</span>
+            <span class="price best">72 €<em>éco & pas cher</em></span>
+            <span class="rating">★ 4.9</span>
+            <span class="perk">Neuf avec étiquette, pointure 39</span>
+          </div>
+        </div>
+      </div>
+      <p class="usecase-note">→ Findly a trouvé 4 sources, détecté la même paire en seconde main à -44 %, et signalé la seule où la 39 est en stock.</p>
+    </section>
+
+    <!-- ================= 5. USE CASE 2 (découverte) ================= -->
+    <section class="usecase alt reveal">
+      <div class="section-head">
+        <p class="eyebrow">Cas d'usage</p>
+        <h2>Exemple : « inspire-moi, je ne sais pas exactement »</h2>
+        <p class="section-sub">Tom décrit une vibe, pas un produit. Findly propose des pistes qu'il n'aurait jamais tapées.</p>
+      </div>
+      <div class="usecase-body">
+        <div class="query-bubble">
+          <span class="bubble-label">La recherche de Tom</span>
+          <p>« Une veste mi-saison pour aller au boulot à vélo, chic mais pas costume, qui résiste à une pluie fine, dans les tons terreux, autour de 200 €. »</p>
+        </div>
+        <div class="idea-cards">
+          <div class="idea-card"><strong>Sur-chemise technique</strong><span>Coton enduit déperlant, coupe workwear, terracotta — 179 €</span></div>
+          <div class="idea-card"><strong>Veste harrington</strong><span>Nylon recyclé, respirante, kaki profond — 205 €</span></div>
+          <div class="idea-card"><strong>Trench court</strong><span>Softshell mat, réfléchissant discret vélo — 219 €</span></div>
+        </div>
+      </div>
+      <p class="usecase-note">→ Aucune de ces pistes n'était une requête « évidente ». L'IA relie l'intention (vélo + pluie + chic) à des produits pertinents.</p>
+    </section>
+
+    <!-- ================= 6. FEATURES ================= -->
+    <section class="features reveal">
+      <div class="section-head">
+        <p class="eyebrow">Ce que Findly fait pour toi</p>
+        <h2>Une recherche, tout le web mode</h2>
+      </div>
+      <div class="feature-grid">
+        <article><div class="ico">🧠</div><h3>Texte ou image</h3><p>Décris comme à un ami, ou dépose une photo : les agents saisissent style, contraintes et sous-entendus.</p></article>
+        <article><div class="ico">💰</div><h3>Comparaison de prix</h3><p>Le même article sur toutes les boutiques, neuf et seconde main, prix aligné.</p></article>
+        <article><div class="ico">📉</div><h3>Historique de prix</h3><p>On te dit si c'est vraiment une bonne affaire ou une fausse promo.</p></article>
+        <article><div class="ico">⭐</div><h3>Avis agrégés</h3><p>Notes et retours regroupés depuis plusieurs sources, résumés par l'IA.</p></article>
+        <article><div class="ico">📏</div><h3>Dispo des tailles</h3><p>Fini le « rupture de stock » après 3 clics : on filtre par ta pointure.</p></article>
+        <article><div class="ico">🌱</div><h3>Options durables</h3><p>Seconde main et marques responsables mises en avant quand c'est pertinent.</p></article>
+      </div>
+    </section>
+
+    <!-- ================= 7. TECH DEEP DIVE ================= -->
+    <section class="tech reveal" id="tech">
+      <div class="section-head">
+        <p class="eyebrow">Sous le capot</p>
+        <h2>Une armée d'agents IA, orchestrée</h2>
+        <p class="section-sub">Findly, ce n'est pas un simple filtre : c'est un système d'agents IA autonomes qui curent le web mode de bout en bout.</p>
+      </div>
+      <div class="tech-grid">
+        <article>
+          <h3>Agents d'exploration autonomes</h3>
+          <p>Chaque agent prend en charge un ensemble de boutiques, navigue leurs catalogues et en extrait les produits pertinents — en parallèle, en temps réel.</p>
+        </article>
+        <article>
+          <h3>Compréhension sémantique</h3>
+          <p>Ta phrase et chaque produit deviennent des vecteurs. Les agents comparent le <em>sens</em>, pas les mots-clés — d'où des résultats justes même sans terme exact.</p>
+        </article>
+        <article>
+          <h3>Matching & dédoublonnage</h3>
+          <p>Les agents reconnaissent qu'un même modèle vendu sur 6 sites est un seul produit, pour comparer des prix vraiment comparables.</p>
+        </article>
+        <article>
+          <h3>Curation & ranking multi-critères</h3>
+          <p>Un agent de synthèse classe le tout selon <em>ton</em> intention : prix, pertinence, fiabilité vendeur, avis et délai combinés en un score.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 8. RÉASSURANCE ================= -->
+    <section class="trust reveal">
+      <div class="trust-grid">
+        <div><div class="ico">🆓</div><h3>100 % gratuit</h3><p>Findly est gratuit pour toi. On se rémunère via l'affiliation, sans gonfler les prix.</p></div>
+        <div><div class="ico">🔒</div><h3>Zéro spam</h3><p>Ton email sert juste à te prévenir au lancement. Pas de revente, pas de pub sauvage.</p></div>
+        <div><div class="ico">🇪🇺</div><h3>Conforme RGPD</h3><p>Données hébergées en Europe. Désinscription en un clic, à tout moment.</p></div>
+        <div><div class="ico">🎯</div><h3>Sans biais</h3><p>Le classement suit ta demande, pas les marques qui paient le plus.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 9. TÉMOIGNAGES ================= -->
+    <section class="testimonials reveal">
+      <div class="section-head">
+        <p class="eyebrow">Ils testent déjà (bêta privée)</p>
+        <h2>Ce qu'en disent les premiers utilisateurs</h2>
+      </div>
+      <div class="testi-grid">
+        <blockquote>
+          <p>« J'ai retrouvé la veste exacte que je voulais, 40 € moins cher, en 5 secondes. J'ai arrêté de chercher moi-même. »</p>
+          <footer>— Camille, 28 ans</footer>
+        </blockquote>
+        <blockquote>
+          <p>« Le truc de dingue c'est les alternatives. Il m'a proposé des marques que je ne connaissais pas et qui matchaient parfaitement. »</p>
+          <footer>— Yanis, 34 ans</footer>
+        </blockquote>
+        <blockquote>
+          <p>« Enfin un comparateur qui comprend "chic mais pas trop". Ça change tout. »</p>
+          <footer>— Sarah, 25 ans</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= 10. FAQ ================= -->
+    <section class="faq reveal" id="faq">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Les questions qu'on nous pose</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Findly, c'est vraiment gratuit ?</summary>
+          <p>Oui. Tu ne paies jamais. Quand tu achètes via un lien Findly, la boutique nous reverse une commission — sans que ça change ton prix.</p>
+        </details>
+        <details>
+          <summary>Quelles boutiques sont couvertes ?</summary>
+          <p>Plus de 50 au lancement (grandes enseignes, marques DTC et seconde main comme Vinted), et on en ajoute chaque semaine.</p>
+        </details>
+        <details>
+          <summary>Comment l'IA comprend ma demande ?</summary>
+          <p>Via de la recherche sémantique : ta phrase est comparée au sens des produits, pas à des mots-clés exacts. D'où des résultats pertinents même vagues.</p>
+        </details>
+        <details>
+          <summary>Vous vendez mes données ?</summary>
+          <p>Non. Ton email sert uniquement à te prévenir au lancement. Hébergement UE, conforme RGPD, désinscription en un clic.</p>
+        </details>
+        <details>
+          <summary>Quand ça sort ?</summary>
+          <p>La bêta ouvre progressivement. Rejoins la waitlist pour un accès prioritaire.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= 11. CTA FINAL ================= -->
+    <section class="cta reveal" id="contact">
+      <h2>Rejoins la waitlist Findly</h2>
+      <p>Sois parmi les premiers à comparer tout le web mode en une phrase. Accès prioritaire, gratuit.</p>
+      <button class="waitlist-btn large" data-waitlist>Je veux l'accès prioritaire →</button>
+      <p class="cta-mini">Déjà <strong id="signup-count">1 248</strong> personnes sur la liste.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="logo">findly</span>
+      <p>Décris. Compare. Trouve.</p>
+      <p class="copyright">© 2026 Findly — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODALE WAITLIST ================= -->
+  <div class="modal-overlay" id="waitlist-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Fermer">×</button>
+      <div class="modal-content" id="modal-content">
+        <p class="tag">🚀 accès prioritaire</p>
+        <h2 id="modal-title">Rejoins la waitlist</h2>
+        <p class="modal-sub">Laisse ton email, on te prévient dès l'ouverture. Zéro spam, promis.</p>
+        <form id="waitlist-form" novalidate>
+          <input type="email" id="waitlist-email" placeholder="ton@email.com" autocomplete="email" required />
+          <button type="submit">Rejoindre →</button>
+        </form>
+        <p class="modal-error" id="modal-error" hidden>Entre une adresse email valide 🙃</p>
+        <p class="modal-legal">En t'inscrivant, tu acceptes de recevoir un email de lancement. Désinscription en 1 clic.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
