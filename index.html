@@ -25,7 +25,8 @@
     </nav>
     <div class="header-actions">
       <a href="en.html" class="lang-switch" aria-label="Switch to English">EN</a>
-      <button class="waitlist-btn" data-waitlist>Rejoindre la waitlist</button>
+      <a href="login.html" class="login-link" hidden>Se connecter</a>
+      <button class="waitlist-btn" data-waitlist>Rejoindre la whitelist</button>
     </div>
   </header>
 
@@ -226,6 +227,22 @@
       </div>
     </section>
 
+    <!-- ================= 8bis. NOTRE HISTOIRE ================= -->
+    <section class="story reveal" id="story">
+      <div class="story-grid">
+        <div class="story-photo">
+          <img src="assets/founders.jpg" alt="Les deux fondatrices de Findly" onerror="this.parentElement.classList.add('story-photo--empty')" />
+          <span class="story-photo-placeholder">📸 Photo à venir</span>
+        </div>
+        <div class="story-text">
+          <p class="eyebrow">Notre histoire</p>
+          <h2>Deux copines, une même obsession</h2>
+          <p>On s'est rencontrées en école de commerce, sur les bancs où on refaisait déjà le monde de la mode entre deux cours. Chacune de notre côté, on a ensuite fait nos armes dans le luxe — packaging, image de marque, exigence du détail à chaque étape.</p>
+          <p>C'est là qu'on a compris un truc : même avec toute cette expertise, trouver LE bon vêtement au bon prix reste un vrai casse-tête, même pour nous. Alors on a décidé de le résoudre, ensemble. Findly, c'est cette conviction qu'on lance aujourd'hui, toutes les deux.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= 9. TÉMOIGNAGES ================= -->
     <section class="testimonials reveal">
       <div class="section-head">
@@ -304,6 +321,7 @@
         <h2 id="modal-title">Rejoins la waitlist</h2>
         <p class="modal-sub">Laisse ton email, on te prévient dès l'ouverture. Zéro spam, promis.</p>
         <form id="waitlist-form" novalidate>
+          <input type="text" id="waitlist-name" placeholder="Ton prénom" autocomplete="given-name" required />
           <input type="email" id="waitlist-email" placeholder="ton@email.com" autocomplete="email" required />
           <button type="submit">Rejoindre →</button>
         </form>
@@ -313,6 +331,8 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-client.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

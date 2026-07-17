@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion — Findly</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Findly accueil">findly</a>
+    <nav></nav>
+    <div class="header-actions">
+      <a href="index.html" class="login-link">← Retour au site</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-card reveal in-view">
+      <p class="tag">🔐 espace réservé</p>
+      <h1 id="auth-title">Connexion</h1>
+      <p class="auth-sub" id="auth-sub">Réservé à l'équipe Findly.</p>
+
+      <form id="auth-form" novalidate>
+        <input type="email" id="auth-email" placeholder="ton@email.com" autocomplete="email" required />
+        <input type="password" id="auth-password" placeholder="Mot de passe (6 caractères min.)" autocomplete="current-password" required minlength="6" />
+        <input type="password" id="auth-password-confirm" placeholder="Confirme le mot de passe" autocomplete="new-password" required minlength="6" hidden />
+        <button type="submit" id="auth-submit">Se connecter →</button>
+      </form>
+
+      <p class="auth-error" id="auth-error" hidden></p>
+      <p class="auth-success" id="auth-success" hidden></p>
+
+      <button type="button" class="auth-toggle" id="auth-toggle">Pas encore de compte ? Créer un compte</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Findly</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Findly accueil">findly</a>
+    <nav></nav>
+    <div class="header-actions">
+      <span class="admin-user" id="admin-user" hidden></span>
+      <button type="button" class="login-link" id="logout-btn" hidden>Déconnexion</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section id="admin-loading" class="admin-state">
+      <p>Vérification de l'accès…</p>
+    </section>
+
+    <section id="admin-denied" class="admin-state" hidden>
+      <p class="tag">🚫 accès refusé</p>
+      <h1>Cet espace est réservé aux admins</h1>
+      <p>Ton compte est connecté, mais il n'a pas les droits pour voir cette page.</p>
+      <a href="index.html" class="waitlist-btn">Retour au site</a>
+    </section>
+
+    <section id="admin-content" class="reveal in-view" hidden>
+      <div class="section-head" style="margin-bottom:28px;">
+        <p class="eyebrow">Espace admin</p>
+        <h2>Inscrits à la waitlist</h2>
+        <p class="section-sub" id="admin-count"></p>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Prénom</th><th>Email</th><th>Inscrit le</th></tr>
+          </thead>
+          <tbody id="admin-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
