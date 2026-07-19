@@ -52,8 +52,10 @@ body {
   font-size: 1.3rem; font-weight: 700;
   letter-spacing: 0.42em; text-transform: uppercase;
   color: var(--text); text-decoration: none;
-  padding-left: 0.42em;
+  display: inline-flex; align-items: center; gap: 0.3em;
 }
+.logo-mark { flex-shrink: 0; }
+.footer-inner .logo { justify-content: center; }
 nav { display: flex; justify-content: center; gap: 34px; }
 nav a {
   text-decoration: none; color: var(--text); font-weight: 500;
