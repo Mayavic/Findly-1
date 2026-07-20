@@ -348,21 +348,12 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .story-text p { margin: 0 0 16px; color: var(--muted); font-size: 1rem; line-height: 1.7; }
 .story-text p:last-child { margin-bottom: 0; }
 
-.trust-grid {
-  margin: 0; display: flex; align-items: stretch;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+.trust-line {
+  margin: 0; padding: 0; display: flex; align-items: center; justify-content: center;
+  gap: clamp(28px, 5vw, 72px); list-style: none; color: var(--muted);
+  font-size: .72rem; font-weight: 500; letter-spacing: .08em;
 }
-.trust-grid div {
-  min-width: 0; flex: 1; padding: 15px 18px; display: flex; align-items: baseline;
-  justify-content: center; gap: 7px; white-space: nowrap;
-}
-.trust-grid div + div { border-left: 1px solid var(--line); }
-.trust-grid dt {
-  margin: 0; color: var(--text); font-size: .6rem; font-weight: 700;
-  letter-spacing: .13em; line-height: 1.4; text-transform: uppercase;
-}
-.trust-grid dt::after { content: "—"; margin-left: 7px; color: var(--muted); font-weight: 400; }
-.trust-grid dd { margin: 0; color: var(--muted); font-size: .68rem; line-height: 1.4; }
+.trust-line li { white-space: nowrap; }
 
 /* ---------- TESTIMONIALS ---------- */
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -465,11 +456,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .story-grid { grid-template-columns: 1fr; gap: 30px; }
   .story-photo { aspect-ratio: 16 / 9; max-width: 420px; margin: 0 auto; }
   .steps article + article, .tech-grid article:nth-child(odd) { border-left: none; }
-  .trust-grid { flex-wrap: wrap; }
-  .trust-grid div { flex: 0 0 50%; }
-  .trust-grid div:nth-child(3) { border-left: none; }
-  .trust-grid div:nth-child(even) { border-left: 1px solid var(--line); }
-  .trust-grid div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .trust-line { flex-wrap: wrap; gap: 14px 34px; }
   .usecase-body, .usecase.alt .usecase-body { grid-template-columns: 1fr; }
   .compare-row { grid-template-columns: 1fr 1fr; gap: 8px 14px; }
   .compare-row .perk { grid-column: 1 / -1; }
@@ -485,8 +472,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .fashion-bag { left: 72%; top: 48%; }
 }
 @media (max-width: 560px) {
-  .trust-grid div { flex-basis: 100%; justify-content: flex-start; padding-inline: 12px; }
-  .trust-grid div + div, .trust-grid div:nth-child(even) { border-left: none; border-top: 1px solid var(--line); }
+  .trust-line { max-width: 320px; margin-inline: auto; gap: 12px 26px; font-size: .68rem; }
   .hero-stats { width: 100%; }
   .hero-stats div { flex: 1; padding: 18px 16px; }
   .fashion-motion-sticky { top: 78px; height: calc(100vh - 78px); min-height: 590px; }
