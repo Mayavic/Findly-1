@@ -266,6 +266,12 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 }
 .steps h3 { margin: 18px 0 12px; font-family: var(--serif); font-weight: 600; font-size: 1.35rem; }
 .steps p { margin: 0; color: var(--muted); line-height: 1.65; font-size: 0.96rem; }
+.how-outcome {
+  margin: 0; padding: clamp(30px, 4vw, 54px) 24px 0; text-align: center;
+  font-family: var(--serif); font-size: clamp(1.45rem, 2.4vw, 2.15rem); line-height: 1.25;
+  color: var(--muted);
+}
+.how-outcome strong { color: var(--text); font-weight: 600; }
 
 /* ---------- USE CASES ---------- */
 .usecase-body { display: grid; grid-template-columns: 0.85fr 1.5fr; gap: 28px; align-items: start; }
