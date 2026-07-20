@@ -350,8 +350,8 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 
 .trust-line {
   width: 100%; margin: 0; display: flex; align-items: center; justify-content: space-between;
-  gap: clamp(8px, 3vw, 52px); color: var(--muted); white-space: nowrap;
-  font-size: clamp(.55rem, .8vw, .7rem); font-weight: 500; letter-spacing: .05em;
+  gap: clamp(10px, 4vw, 72px); color: var(--muted); white-space: nowrap;
+  font-family: var(--sans); font-size: clamp(.55rem, 1.2vw, .9rem); font-weight: 400; letter-spacing: 0;
 }
 
 /* ---------- TESTIMONIALS ---------- */
