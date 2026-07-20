@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260720-4" />
+  <link rel="stylesheet" href="style.css?v=20260720-5" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -125,75 +125,33 @@
           <p>Décris une pièce aperçue ou imaginée, même sans connaître sa marque. Findly sélectionne les modèles qui correspondent vraiment à ton envie.</p>
         </article>
       </div>
-      <p class="how-outcome">Findly réunit les meilleures options. <strong>Tu compares et tu choisis.</strong></p>
     </section>
 
-    <!-- ================= 4. USE CASE 1 (concret) ================= -->
-    <section class="usecase reveal" id="usecases">
+    <!-- ================= 4. CAS D'USAGE ================= -->
+    <section class="usecases-showcase reveal" id="usecases">
       <div class="section-head">
-        <p class="eyebrow">Cas d'usage</p>
-        <h2>Exemple : « je veux CETTE chaussure, au meilleur prix »</h2>
-        <p class="section-sub">Léa cherche une paire précise. Elle la décrit, Findly la retrouve partout et compare.</p>
+        <p class="eyebrow">En situation</p>
+        <h2>Cherche comme tu veux.</h2>
+        <p class="section-sub">Un détail précis, une image ou une simple idée : Findly transforme chaque point de départ en une sélection claire.</p>
       </div>
-
-      <div class="usecase-body">
-        <div class="query-bubble">
-          <span class="bubble-label">La recherche de Léa</span>
-          <p>« Des Chelsea boots en cuir marron, bout légèrement carré, talon 4 cm, style minimaliste scandinave, budget max 160 €, pointure 39 dispo. »</p>
-        </div>
-
-        <div class="compare-table">
-          <div class="compare-row compare-head">
-            <span>Boutique</span><span>Prix</span><span>Avis</span><span>Avantage</span>
-          </div>
-          <div class="compare-row">
-            <span class="shop">NordicShoes</span>
-            <span class="price best">129 €<em>meilleur prix</em></span>
-            <span class="rating">★ 4.8</span>
-            <span class="perk">Livraison 48h + retour gratuit</span>
-          </div>
-          <div class="compare-row">
-            <span class="shop">Sarenza</span>
-            <span class="price">149 €</span>
-            <span class="rating">★ 4.6</span>
-            <span class="perk">Stock large, toutes pointures</span>
-          </div>
-          <div class="compare-row">
-            <span class="shop">Farfetch</span>
-            <span class="price">158 €</span>
-            <span class="rating">★ 4.7</span>
-            <span class="perk">Cuir pleine fleur, finition premium</span>
-          </div>
-          <div class="compare-row">
-            <span class="shop">Vinted (seconde main)</span>
-            <span class="price best">72 €<em>éco & pas cher</em></span>
-            <span class="rating">★ 4.9</span>
-            <span class="perk">Neuf avec étiquette, pointure 39</span>
-          </div>
-        </div>
+      <div class="scenario-list">
+        <article class="scenario-card">
+          <div class="scenario-intro"><span class="scenario-num">01</span><p>Recherche précise</p><h3>Tu connais déjà la pièce.</h3></div>
+          <blockquote>« Chelsea boots marron, bout carré, pointure 39. »</blockquote>
+          <div class="scenario-result"><span><strong>Le meilleur prix</strong> parmi les offres disponibles</span><span><strong>Ta taille en stock</strong> avant de cliquer</span><span><strong>Neuf ou seconde main</strong> au même endroit</span></div>
+        </article>
+        <article class="scenario-card">
+          <div class="scenario-intro"><span class="scenario-num">02</span><p>À partir d’une image</p><h3>Tu l’as vue. Findly la retrouve.</h3></div>
+          <div class="scenario-image" role="img" aria-label="Exemple d’un screenshot de look envoyé à Findly"><span>Screenshot d’un look</span><b>La pièce repérée</b></div>
+          <div class="scenario-result"><span><strong>La pièce exacte</strong> lorsqu’elle est identifiable</span><span><strong>Les modèles proches</strong> pour élargir le choix</span><span><strong>Les sites disponibles</strong> pour passer à l’achat</span></div>
+        </article>
+        <article class="scenario-card">
+          <div class="scenario-intro"><span class="scenario-num">03</span><p>Par description</p><h3>Tu l’imagines. Findly la sélectionne.</h3></div>
+          <blockquote>« Une veste chic pour le vélo, légère, déperlante et dans des tons terreux. »</blockquote>
+          <div class="scenario-result"><span><strong>Surchemise technique</strong> pour une allure décontractée</span><span><strong>Veste harrington</strong> pour une coupe plus structurée</span><span><strong>Trench court</strong> pour une option plus habillée</span></div>
+        </article>
       </div>
-      <p class="usecase-note">→ Findly a trouvé 4 sources, détecté la même paire en seconde main à -44 %, et signalé la seule où la 39 est en stock.</p>
-    </section>
-
-    <!-- ================= 5. USE CASE 2 (découverte) ================= -->
-    <section class="usecase alt reveal">
-      <div class="section-head">
-        <p class="eyebrow">Cas d'usage</p>
-        <h2>Exemple : « inspire-moi, je ne sais pas exactement »</h2>
-        <p class="section-sub">Tom décrit une vibe, pas un produit. Findly propose des pistes qu'il n'aurait jamais tapées.</p>
-      </div>
-      <div class="usecase-body">
-        <div class="query-bubble">
-          <span class="bubble-label">La recherche de Tom</span>
-          <p>« Une veste mi-saison pour aller au boulot à vélo, chic mais pas costume, qui résiste à une pluie fine, dans les tons terreux, autour de 200 €. »</p>
-        </div>
-        <div class="idea-cards">
-          <div class="idea-card"><strong>Sur-chemise technique</strong><span>Coton enduit déperlant, coupe workwear, terracotta — 179 €</span></div>
-          <div class="idea-card"><strong>Veste harrington</strong><span>Nylon recyclé, respirante, kaki profond — 205 €</span></div>
-          <div class="idea-card"><strong>Trench court</strong><span>Softshell mat, réfléchissant discret vélo — 219 €</span></div>
-        </div>
-      </div>
-      <p class="usecase-note">→ Aucune de ces pistes n'était une requête « évidente ». L'IA relie l'intention (vélo + pluie + chic) à des produits pertinents.</p>
+      <p class="scenario-closing">Tu compares. <strong>Tu choisis.</strong></p>
     </section>
 
     <!-- ================= 6. DECISION DETAILS ================= -->
