@@ -349,10 +349,11 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .story-text p:last-child { margin-bottom: 0; }
 
 .trust-line {
-  width: 100%; margin: 0; display: flex; align-items: center; justify-content: space-between;
-  gap: clamp(10px, 4vw, 72px); color: var(--muted); white-space: nowrap;
-  font-family: var(--sans); font-size: clamp(.55rem, 1.2vw, .9rem); font-weight: 400; letter-spacing: 0;
+  width: 100%; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center; color: var(--muted); font-family: var(--sans);
+  font-size: .9rem; font-weight: 400; letter-spacing: 0;
 }
+.trust-line span { min-width: 0; text-align: center; white-space: nowrap; }
 
 /* ---------- TESTIMONIALS ---------- */
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -455,6 +456,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .story-grid { grid-template-columns: 1fr; gap: 30px; }
   .story-photo { aspect-ratio: 16 / 9; max-width: 420px; margin: 0 auto; }
   .steps article + article, .tech-grid article:nth-child(odd) { border-left: none; }
+  .trust-line { font-size: .7rem; }
   .usecase-body, .usecase.alt .usecase-body { grid-template-columns: 1fr; }
   .compare-row { grid-template-columns: 1fr 1fr; gap: 8px 14px; }
   .compare-row .perk { grid-column: 1 / -1; }
@@ -470,7 +472,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .fashion-bag { left: 72%; top: 48%; }
 }
 @media (max-width: 560px) {
-  .trust-line { gap: 6px; font-size: .55rem; letter-spacing: 0; }
+  .trust-line { font-size: .52rem; }
   .hero-stats { width: 100%; }
   .hero-stats div { flex: 1; padding: 18px 16px; }
   .fashion-motion-sticky { top: 78px; height: calc(100vh - 78px); min-height: 590px; }
