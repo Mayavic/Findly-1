@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260720-7" />
+  <link rel="stylesheet" href="style.css?v=20260720-9" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -16,7 +16,7 @@
 
   <!-- ================= HEADER ================= -->
   <header class="site-header">
-    <a href="#" class="logo" aria-label="Findly accueil"><svg class="logo-mark" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="20.5" y2="20.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>findly</a>
+    <a href="#" class="logo" aria-label="Findly accueil">findly</a>
     <nav>
       <a href="#concept">Le concept</a>
       <a href="#how">Comment ça marche</a>
@@ -35,7 +35,7 @@
     <section class="hero reveal" id="concept">
       <h1>
         Une recherche.<br />
-        Toute la mode.
+        <span>Toute la mode.</span>
       </h1>
       <p class="hero-text">
         Trouver la bonne pièce ne devrait pas prendre des heures. Findly parcourt les boutiques, les revendeurs
@@ -53,26 +53,37 @@
           </div>
 
           <div class="fashion-stage" id="fashion-stage" aria-hidden="true">
-            <span class="fashion-shape fashion-shape-ring"></span>
-            <span class="fashion-shape fashion-shape-dot"></span>
-            <span class="fashion-shape fashion-shape-line"></span>
+            <div class="scanner-frame">
+              <div class="scanner-status"><span>Analyse Findly</span><strong>Recherche multi-source</strong></div>
 
-            <div class="fashion-shirt">
-              <svg viewBox="0 0 240 220" role="presentation">
-                <path d="M76 25 99 13c6 13 36 13 42 0l23 12 47 32-28 42-21-13v116H78V86L57 99 29 57Z" fill="currentColor"/>
-                <path d="M99 13c3 19 39 19 42 0" fill="none" stroke="#fff" stroke-opacity=".76" stroke-width="3"/>
-                <path d="M78 86v-33M162 86V53M91 183h58" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
-                <circle cx="120" cy="108" r="18" fill="none" stroke="#fff" stroke-opacity=".86" stroke-width="2"/>
-                <path d="m131 119 16 16" stroke="#fff" stroke-opacity=".86" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
+              <div class="scanner-sources">
+                <span class="scanner-source source-one"><i></i>Marques officielles</span>
+                <span class="scanner-source source-two"><i></i>Multimarques</span>
+                <span class="scanner-source source-three"><i></i>Seconde main</span>
+              </div>
 
-            <div class="fashion-bag">
-              <svg viewBox="0 0 220 250" role="presentation">
-                <path d="M62 82V59c0-32 96-32 96 0v23" fill="none" stroke="currentColor" stroke-width="8"/>
-                <path d="M29 76h162l-10 159H39Z" fill="#fff" stroke="currentColor" stroke-width="4"/>
-                <text x="110" y="165" text-anchor="middle" fill="currentColor">FINDLY</text>
-              </svg>
+              <div class="scanner-garment">
+                <span class="scanner-index">Pièce 01 — Robe noire</span>
+                <svg viewBox="0 0 260 390" role="presentation">
+                  <path d="M95 20c8 17 62 17 70 0l28 23-25 76 43 233H49l43-233-25-76Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M95 20c6 31 64 31 70 0M92 119h76M74 241h112" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity=".28"/>
+                </svg>
+                <span class="scanner-axis scanner-axis-v"></span>
+                <span class="scanner-axis scanner-axis-h"></span>
+                <span class="scanner-beam"><i></i></span>
+              </div>
+
+              <div class="scanner-criteria">
+                <span class="scanner-criterion criterion-one"><i>01</i><b>Taille</b><em>M disponible</em></span>
+                <span class="scanner-criterion criterion-two"><i>02</i><b>Prix</b><em>Dans ton budget</em></span>
+                <span class="scanner-criterion criterion-three"><i>03</i><b>Livraison</b><em>2–3 jours</em></span>
+              </div>
+
+              <div class="scanner-result">
+                <span class="scanner-result-mark">✓</span>
+                <span><small>Match trouvé</small><strong>La pièce juste</strong></span>
+                <em>96%</em>
+              </div>
             </div>
           </div>
 
@@ -174,7 +185,7 @@
       <div class="faq-list">
         <details>
           <summary>Quand Findly sera-t-il accessible ?</summary>
-          <p>Findly ouvrira progressivement ses portes. Les membres du Club seront les premiers invités à le découvrir.</p>
+          <p>Findly ouvrira progressivement ses portes. Les membres du Club seront les premières personnes invitées à le découvrir.</p>
         </details>
         <details>
           <summary>Que pourrai-je chercher ?</summary>
@@ -182,7 +193,7 @@
         </details>
         <details>
           <summary>Que signifie rejoindre le Club ?</summary>
-          <p>Tu seras informé du lancement et recevras une invitation pour découvrir Findly en avant-première.</p>
+          <p>Tu seras informé(e) du lancement et recevras une invitation pour découvrir Findly en avant-première.</p>
         </details>
         <details>
           <summary>Comment mes données sont-elles utilisées ?</summary>

@@ -147,26 +147,24 @@ function updateFashionMotion() {
   const rect = fashionMotion.getBoundingClientRect();
   const scrollDistance = Math.max(fashionMotion.offsetHeight - window.innerHeight, 1);
   const progress = clamp(-rect.top / scrollDistance);
-  const travel = smoothstep(progress / 0.72);
-  const drop = smoothstep((progress - 0.68) / 0.26);
-  const startX = -Math.min(window.innerWidth * 0.3, 360);
-  const endX = Math.min(window.innerWidth * 0.22, 250);
-  const shirtX = startX + (endX - startX) * travel;
-  const shirtY = -30 + 40 * travel + 132 * drop;
-  const rotation = -18 + 390 * travel + 32 * drop;
-  const scale = 1 - 0.48 * drop;
-  const opacity = 1 - smoothstep((progress - 0.9) / 0.08);
-  const bagLift = -Math.sin(drop * Math.PI) * 10;
+  const scan = smoothstep((progress - 0.16) / 0.48);
+  const beamOpacity = smoothstep((progress - 0.1) / 0.08) * (1 - smoothstep((progress - 0.68) / 0.08));
+  const result = smoothstep((progress - 0.72) / 0.18);
+  const scanDistance = Math.max(fashionStage.clientHeight * 0.54, 220);
+  const setProgress = (name, value) => fashionStage.style.setProperty(name, clamp(value).toFixed(3));
 
-  fashionStage.style.setProperty("--shirt-x", `${shirtX}px`);
-  fashionStage.style.setProperty("--shirt-y", `${shirtY}px`);
-  fashionStage.style.setProperty("--shirt-rotation", `${rotation}deg`);
-  fashionStage.style.setProperty("--shirt-scale", scale.toFixed(3));
-  fashionStage.style.setProperty("--shirt-opacity", opacity.toFixed(3));
-  fashionStage.style.setProperty("--bag-y", `${bagLift}px`);
-  fashionStage.style.setProperty("--shape-ring-y", `${progress * -22}px`);
-  fashionStage.style.setProperty("--shape-dot-y", `${progress * 90}px`);
-  fashionStage.style.setProperty("--shape-line-x", `${progress * -36}px`);
+  fashionStage.style.setProperty("--scan-y", `${scan * scanDistance}px`);
+  fashionStage.style.setProperty("--beam-opacity", beamOpacity.toFixed(3));
+  setProgress("--source-one", (progress - 0.02) / 0.1);
+  setProgress("--source-two", (progress - 0.09) / 0.1);
+  setProgress("--source-three", (progress - 0.16) / 0.1);
+  setProgress("--criterion-one", (progress - 0.28) / 0.1);
+  setProgress("--criterion-two", (progress - 0.42) / 0.1);
+  setProgress("--criterion-three", (progress - 0.56) / 0.1);
+  fashionStage.style.setProperty("--result-opacity", result.toFixed(3));
+  fashionStage.style.setProperty("--result-y", `${(1 - result) * 18}px`);
+  fashionStage.style.setProperty("--analysis-opacity", (1 - result * 0.78).toFixed(3));
+  fashionStage.style.setProperty("--garment-scale", (0.96 + scan * 0.04).toFixed(3));
 }
 
 function requestFashionUpdate() {

@@ -217,38 +217,71 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
   max-width: 340px; margin: 24px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7;
 }
 .fashion-stage {
-  --shirt-x: -30vw; --shirt-y: -30px; --shirt-rotation: -18deg; --shirt-scale: 1;
-  --shirt-opacity: 1; --bag-y: 0px; --shape-ring-y: 0px; --shape-dot-y: 0px; --shape-line-x: 0px;
+  --scan-y: 0px; --beam-opacity: 0; --source-one: 0; --source-two: 0; --source-three: 0;
+  --criterion-one: 0; --criterion-two: 0; --criterion-three: 0; --result-opacity: 0; --result-y: 18px;
+  --analysis-opacity: 1; --garment-scale: .96;
   position: relative; height: min(68vh, 650px); min-height: 470px;
-  isolation: isolate; perspective: 900px;
+  isolation: isolate;
 }
-.fashion-shirt {
-  position: absolute; z-index: 3; left: 50%; top: 23%; width: clamp(145px, 18vw, 230px);
-  color: var(--text); opacity: var(--shirt-opacity);
-  transform: translate3d(calc(-50% + var(--shirt-x)), var(--shirt-y), 0) rotate(var(--shirt-rotation)) scale(var(--shirt-scale));
-  transform-origin: 50% 48%; filter: drop-shadow(0 24px 24px rgba(10,10,10,.16));
-  will-change: transform, opacity;
+.scanner-frame {
+  position: absolute; inset: 3% 2% 4%; overflow: hidden; border: 1px solid var(--text);
+  background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 25% 25%;
 }
-.fashion-shirt svg, .fashion-bag svg { display: block; width: 100%; height: auto; }
-.fashion-bag {
-  position: absolute; z-index: 4; left: 72%; top: 48%; width: clamp(150px, 19vw, 220px);
-  color: var(--text); transform: translate3d(-50%, var(--bag-y), 0);
-  filter: drop-shadow(0 28px 30px rgba(10,10,10,.12)); will-change: transform;
+.scanner-frame::before, .scanner-frame::after { content: ""; position: absolute; z-index: 1; background: var(--text); }
+.scanner-frame::before { width: 1px; height: 100%; left: 50%; opacity: .13; }
+.scanner-frame::after { height: 1px; width: 100%; top: 50%; opacity: .13; }
+.scanner-status {
+  position: absolute; z-index: 4; top: 18px; left: 20px; display: grid; gap: 4px;
+  opacity: var(--analysis-opacity); transition: opacity .15s ease;
 }
-.fashion-bag text { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 7px; }
-.fashion-shape { position: absolute; display: block; pointer-events: none; will-change: transform; }
-.fashion-shape-ring {
-  width: clamp(280px, 38vw, 510px); aspect-ratio: 1; border: 1px solid var(--text); border-radius: 50%;
-  left: 15%; top: 6%; transform: translate3d(0, var(--shape-ring-y), 0);
+.scanner-status span, .scanner-index, .scanner-source, .scanner-criterion i, .scanner-criterion em, .scanner-result small {
+  font-size: .58rem; font-style: normal; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
 }
-.fashion-shape-dot {
-  width: clamp(74px, 9vw, 128px); aspect-ratio: 1; border-radius: 50%; background: var(--text);
-  right: 4%; top: 6%; transform: translate3d(0, var(--shape-dot-y), 0);
+.scanner-status strong { font-family: var(--serif); font-size: 1rem; font-weight: 600; }
+.scanner-sources { position: absolute; z-index: 4; left: 20px; top: 23%; display: grid; gap: 16px; }
+.scanner-source { display: flex; align-items: center; gap: 9px; color: var(--text); will-change: transform, opacity; }
+.scanner-source i { width: 6px; height: 6px; border-radius: 50%; background: var(--text); }
+.source-one { opacity: var(--source-one); transform: translate3d(calc((1 - var(--source-one)) * -14px), 0, 0); }
+.source-two { opacity: var(--source-two); transform: translate3d(calc((1 - var(--source-two)) * -14px), 0, 0); }
+.source-three { opacity: var(--source-three); transform: translate3d(calc((1 - var(--source-three)) * -14px), 0, 0); }
+.scanner-garment {
+  position: absolute; z-index: 2; left: 50%; top: 52%; width: clamp(170px, 27vw, 280px); height: 78%;
+  color: var(--text); opacity: var(--analysis-opacity); transform: translate3d(-50%, -50%, 0) scale(var(--garment-scale));
+  transform-origin: center; will-change: transform, opacity;
 }
-.fashion-shape-line {
-  width: 45%; height: 1px; background: var(--text); right: 1%; bottom: 13%;
-  transform: translate3d(var(--shape-line-x), 0, 0) rotate(-24deg); transform-origin: right center;
+.scanner-garment svg { display: block; width: 100%; height: 100%; }
+.scanner-index { position: absolute; top: 7%; left: 50%; white-space: nowrap; transform: translateX(-50%); }
+.scanner-axis { position: absolute; display: block; background: var(--text); opacity: .16; }
+.scanner-axis-v { width: 1px; height: 88%; left: 50%; top: 8%; }
+.scanner-axis-h { width: 88%; height: 1px; left: 6%; top: 51%; }
+.scanner-beam {
+  position: absolute; z-index: 5; left: -16%; top: 12%; width: 132%; height: 1px; background: var(--text);
+  opacity: var(--beam-opacity); transform: translate3d(0, var(--scan-y), 0); will-change: transform, opacity;
 }
+.scanner-beam::before, .scanner-beam::after { content: ""; position: absolute; top: -3px; width: 7px; height: 7px; background: var(--text); }
+.scanner-beam::before { left: 0; }.scanner-beam::after { right: 0; }
+.scanner-beam i { position: absolute; left: 50%; top: -16px; height: 32px; width: 1px; background: var(--text); opacity: .35; }
+.scanner-criteria { position: absolute; z-index: 5; right: 18px; top: 22%; display: grid; gap: 12px; width: min(170px, 28%); }
+.scanner-criterion {
+  display: grid; grid-template-columns: 28px 1fr; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line);
+  background: var(--bg); will-change: transform, opacity;
+}
+.scanner-criterion i { grid-row: 1 / 3; color: var(--text); }
+.scanner-criterion b { font-family: var(--serif); font-size: .86rem; font-weight: 600; }
+.scanner-criterion em { margin-top: 3px; font-size: .48rem; }
+.criterion-one { opacity: var(--criterion-one); transform: translate3d(calc((1 - var(--criterion-one)) * 14px), 0, 0); }
+.criterion-two { opacity: var(--criterion-two); transform: translate3d(calc((1 - var(--criterion-two)) * 14px), 0, 0); }
+.criterion-three { opacity: var(--criterion-three); transform: translate3d(calc((1 - var(--criterion-three)) * 14px), 0, 0); }
+.scanner-result {
+  position: absolute; z-index: 8; left: 50%; top: 50%; display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 13px;
+  min-width: 270px; padding: 14px 16px; border: 1px solid var(--text); background: var(--bg); box-shadow: var(--shadow);
+  opacity: var(--result-opacity); transform: translate3d(-50%, calc(-50% + var(--result-y)), 0); will-change: transform, opacity;
+}
+.scanner-result-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--text); color: var(--bg); }
+.scanner-result > span:nth-child(2) { display: grid; gap: 2px; }
+.scanner-result strong { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; }
+.scanner-result em { font-family: var(--serif); font-size: 1.1rem; font-style: italic; }
 .fashion-scroll-cue {
   position: absolute; z-index: 6; left: clamp(8px, 3vw, 42px); bottom: 32px; margin: 0;
   display: flex; align-items: center; gap: 12px; font-size: .68rem; font-weight: 600;
@@ -416,7 +449,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .fashion-motion-copy h2 { font-size: clamp(2.5rem, 9vw, 4.5rem); }
   .fashion-motion-copy > p:last-child { margin-top: 16px; }
   .fashion-stage { position: absolute; inset: 28% 0 0; height: 66%; min-height: 380px; }
-  .fashion-bag { left: 72%; top: 48%; }
+  .scanner-frame { inset: 3% 0 2%; }
 }
 @media (max-width: 560px) {
   .trust-line { font-size: .52rem; }
@@ -426,9 +459,15 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .fashion-motion-copy { padding-left: 6px; }
   .fashion-motion-copy > p:last-child { max-width: 300px; font-size: .92rem; }
   .fashion-stage { inset: 31% 0 0; }
-  .fashion-shirt { width: 138px; }
-  .fashion-bag { width: 142px; left: 72%; top: 54%; }
-  .fashion-shape-dot { right: 0; }
+  .scanner-frame { inset: 2% 0 3%; }
+  .scanner-status { top: 13px; left: 13px; }
+  .scanner-sources { left: 13px; top: 19%; gap: 11px; }
+  .scanner-source { max-width: 94px; line-height: 1.35; }
+  .scanner-garment { top: 55%; width: 170px; height: 69%; }
+  .scanner-criteria { right: 10px; top: 20%; width: 105px; gap: 5px; }
+  .scanner-criterion { grid-template-columns: 20px 1fr; padding: 7px 0; }
+  .scanner-criterion em { display: none; }
+  .scanner-result { min-width: 248px; padding: 12px; }
   .fashion-scroll-cue { left: 6px; bottom: 22px; }
 }
 
@@ -437,7 +476,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .fashion-motion { height: auto; min-height: 720px; }
   .fashion-motion-sticky { position: relative; top: auto; height: 720px; }
-  .fashion-stage { --shirt-x: 5vw; --shirt-y: -25px; --shirt-rotation: -8deg; --shirt-scale: .78; --shirt-opacity: 1; }
+  .fashion-stage { --beam-opacity: 0; --source-one: 0; --source-two: 0; --source-three: 0; --criterion-one: 0; --criterion-two: 0; --criterion-three: 0; --result-opacity: 1; --result-y: 0px; --analysis-opacity: .22; --garment-scale: 1; }
   .fashion-scroll-cue { display: none; }
 }
 
