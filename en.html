@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260720-4" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -33,7 +33,6 @@
   <main>
     <!-- ================= 1. HERO ================= -->
     <section class="hero reveal">
-      <p class="tag">🤖 AI agents that shop for you</p>
       <h1>
         Describe the perfect outfit.<br />
         <span>Our AI agents find it everywhere.</span>
@@ -48,42 +47,20 @@
         <h2>Join the Findly waitlist</h2>
         <p>Be among the first to have AI agents shop the whole fashion web for you in one sentence. Priority access, free.</p>
         <button class="waitlist-btn large" data-waitlist>I want priority access →</button>
-        <p class="cta-mini">Already <strong id="signup-count">1,248</strong> people on the list.</p>
       </section>
 
-      <form class="search-card" id="demo" onsubmit="return false;">
-        <label for="prompt" class="search-label">Describe… or drop a photo ↓</label>
-        <textarea id="prompt" rows="3" placeholder="e.g. Minimalist white leather sneakers, chunky sole, premium streetwear look, under €120, size 43, delivered within 48h."></textarea>
-        <div class="image-drop" id="image-drop">
-          <input type="file" id="image-input" accept="image/*" hidden />
-          <span class="image-drop-label">📷 Spotted an outfit you love? <strong>Drop a photo</strong> — our agents find the same item (or its match) across every store.</span>
-          <span class="image-drop-file" id="image-file" hidden></span>
-        </div>
-        <div class="card-footer">
-          <span>Our AI agents will compare, curate and surface the best options in one search.</span>
-          <button id="try-btn" type="submit">Send the agents →</button>
-        </div>
-      </form>
-
-      <div class="quick-results" id="results" aria-live="polite">
-        <div class="result-item">👟 White grained-leather sneakers — chunky sole — 3 stores, from €89</div>
-        <div class="result-item">✨ Agent-spotted alternative: eco-leather model rated 4.7/5, 24h delivery</div>
-        <div class="result-item">💸 Best price detected: -32% vs 30-day average price</div>
-      </div>
-
       <div class="hero-stats">
-        <div><strong>50+</strong><span>stores scanned</span></div>
-        <div><strong>2M+</strong><span>items indexed</span></div>
-        <div><strong>~3s</strong><span>per comparison</span></div>
+        <div><strong>One search</strong><span>Describe exactly what you want</span></div>
+        <div><strong>Every source</strong><span>Official sites, multi-brand sites and pre-owned platforms</span></div>
+        <div><strong>The right piece</strong><span>Price, size and availability considered</span></div>
       </div>
     </section>
 
     <!-- ================= 2. LOGOS ================= -->
     <section class="logos reveal">
-      <p>Findly compares prices across</p>
+      <p>Everywhere fashion can be found online</p>
       <div class="logo-row">
-        <span>Zalando</span><span>ASOS</span><span>Zara</span><span>Nike</span>
-        <span>Vinted</span><span>Farfetch</span><span>Courir</span><span>+42 more</span>
+        <span>Official sites</span><span>Multi-brand sites</span><span>Pre-owned platforms</span>
       </div>
     </section>
 
@@ -91,26 +68,27 @@
     <section class="how reveal" id="how">
       <div class="section-head">
         <p class="eyebrow">How it works</p>
-        <h2>Your AI agents handle everything, in 3 steps</h2>
-        <p class="section-sub">No filters to tick one by one. You talk, the AI agents do the rest.</p>
+        <h2>Three ways to find the right piece</h2>
+        <p class="section-sub">Start with what you know. Findly takes care of finding the rest.</p>
       </div>
       <div class="steps">
         <article>
           <span class="step-num">01</span>
-          <h3>You describe in plain language</h3>
-          <p>Brand, fabric, cut, budget, occasion, colors to avoid… our agents grasp nuances like "premium look" or "not too tight".</p>
+          <h3>You know what you want</h3>
+          <p>A brand, a model, a size, a colour or a budget: set your criteria and discover the pieces available online.</p>
         </article>
         <article>
           <span class="step-num">02</span>
-          <h3>AI agents explore & curate the web</h3>
-          <p>Several agents fan out in parallel to search dozens of store catalogs in real time, read the product pages and pick what truly matches.</p>
+          <h3>You have an image</h3>
+          <p>Add a photo or screenshot. Findly finds the piece — or the closest matches — and takes you to the sites where it is available.</p>
         </article>
         <article>
           <span class="step-num">03</span>
-          <h3>You compare and choose</h3>
-          <p>The agents deliver a curated shortlist: price per store, price history, aggregated reviews, size availability — all lined up side by side.</p>
+          <h3>You have it in mind</h3>
+          <p>Describe a piece you saw or imagined, even if you do not know the brand. Findly selects the styles that truly match your idea.</p>
         </article>
       </div>
+      <p class="how-outcome">Findly brings together the best options. <strong>You compare and choose.</strong></p>
     </section>
 
     <!-- ================= 4. USE CASE 1 ================= -->
@@ -181,46 +159,25 @@
       <p class="usecase-note">→ None of these were an "obvious" query. The agents connect intent (cycling + rain + smart) to relevant products.</p>
     </section>
 
-    <!-- ================= 6. FEATURES ================= -->
+    <!-- ================= 6. DECISION DETAILS ================= -->
     <section class="features reveal">
       <div class="section-head">
-        <p class="eyebrow">What Findly does for you</p>
-        <h2>One search, the whole fashion web</h2>
+        <p class="eyebrow">Before you choose</p>
+        <h2>The details that change everything</h2>
       </div>
       <div class="feature-grid">
-        <article><div class="ico">🧠</div><h3>Text or image</h3><p>Describe it like you would to a friend, or drop a photo: the agents grasp style, constraints and hints.</p></article>
-        <article><div class="ico">💰</div><h3>Price comparison</h3><p>The same item across every store, new and second-hand, prices aligned.</p></article>
-        <article><div class="ico">📉</div><h3>Price history</h3><p>We tell you whether it's a real deal or a fake discount.</p></article>
-        <article><div class="ico">⭐</div><h3>Aggregated reviews</h3><p>Ratings and feedback pulled from multiple sources, summarized by AI.</p></article>
-        <article><div class="ico">📏</div><h3>Size availability</h3><p>No more "out of stock" after 3 clicks: we filter by your size.</p></article>
-        <article><div class="ico">🌱</div><h3>Sustainable options</h3><p>Second-hand and responsible brands surfaced when relevant.</p></article>
+        <article><span class="feature-num">01</span><h3>The real price</h3><p>Compared prices and verified price history reveal a genuine deal from a misleading discount.</p></article>
+        <article><span class="feature-num">02</span><h3>Available in your size</h3><p>Findly removes pieces that are already sold out. No more discovering it after three clicks.</p></article>
+        <article><span class="feature-num">03</span><h3>Reviews, brought together</h3><p>The ratings and useful feedback are gathered in one place, helping you choose with confidence.</p></article>
       </div>
     </section>
 
-    <!-- ================= 7. TECH ================= -->
+    <!-- ================= 7. FINDLY TECHNOLOGY ================= -->
     <section class="tech reveal" id="tech">
       <div class="section-head">
-        <p class="eyebrow">Under the hood</p>
-        <h2>An orchestrated army of AI agents</h2>
-        <p class="section-sub">Findly isn't a simple filter: it's a system of autonomous AI agents curating the fashion web end to end.</p>
-      </div>
-      <div class="tech-grid">
-        <article>
-          <h3>Autonomous exploration agents</h3>
-          <p>Each agent owns a set of stores, browses their catalogs and extracts the relevant products — in parallel, in real time.</p>
-        </article>
-        <article>
-          <h3>Semantic understanding</h3>
-          <p>Your sentence and every product become vectors. Agents compare <em>meaning</em>, not keywords — so results are right even without an exact term.</p>
-        </article>
-        <article>
-          <h3>Matching & deduplication</h3>
-          <p>Agents recognize that the same model sold across 6 sites is one product, so you compare truly comparable prices.</p>
-        </article>
-        <article>
-          <h3>Curation & multi-criteria ranking</h3>
-          <p>A synthesis agent ranks everything by <em>your</em> intent: price, relevance, seller trust, reviews and delivery combined into one score.</p>
-        </article>
+        <p class="eyebrow">Findly technology</p>
+        <h2>Different searches.<br />One clear selection.</h2>
+        <p class="section-sub">Filters, image or description: Findly recognises the same pieces across sites, removes duplicates and ranks the results according to your criteria.</p>
       </div>
     </section>
 
@@ -238,7 +195,7 @@
     <section class="story reveal" id="story">
       <div class="story-grid">
         <div class="story-photo">
-          <img src="assets/founders.jpg" alt="Findly's two co-founders" onerror="this.parentElement.classList.add('story-photo--empty')" />
+          <img src="assets/founders-editorial.jpg" alt="Editorial portrait illustrating two friends in contemporary tailoring" width="1003" height="1254" loading="lazy" onerror="this.parentElement.classList.add('story-photo--empty')" />
           <span class="story-photo-placeholder">📸 Photo coming soon</span>
         </div>
         <div class="story-text">

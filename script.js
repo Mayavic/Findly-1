@@ -2,84 +2,14 @@
 const LANG = (document.documentElement.lang || "fr").toLowerCase().startsWith("en") ? "en" : "fr";
 const T = {
   fr: {
-    results: [
-      "👟 3 boutiques trouvées pour ta description — meilleur prix à partir de 89 €",
-      "✨ Alternative repérée : modèle très proche, mieux noté (4.7/5), livraison 24h",
-      "💸 Bonne affaire détectée : -32 % vs prix moyen constaté sur 30 jours",
-      "🌱 Option seconde main : identique, neuf avec étiquette, dans ta taille"
-    ],
-    imageOk: (name) => "✅ " + name + " — les agents vont chercher ce visuel.",
     successTitle: "Tu es sur la liste !",
     successBody: (email) => `Merci 🙌 On t'écrit à <strong>${email}</strong> dès l'ouverture de la bêta. Surveille ta boîte mail (et les spams, au cas où).`
   },
   en: {
-    results: [
-      "👟 3 stores found for your description — best price from €89",
-      "✨ Agent-spotted alternative: very close model, better rated (4.7/5), 24h delivery",
-      "💸 Deal detected: -32% vs 30-day average price",
-      "🌱 Second-hand option: identical, new with tags, in your size"
-    ],
-    imageOk: (name) => "✅ " + name + " — the agents will search for this visual.",
     successTitle: "You're on the list!",
     successBody: (email) => `Thanks 🙌 We'll email <strong>${email}</strong> the moment the beta opens. Keep an eye on your inbox (and spam, just in case).`
   }
 }[LANG];
-
-/* ============ DÉMO DE RECHERCHE (hero) ============ */
-const tryBtn = document.getElementById("try-btn");
-const promptInput = document.getElementById("prompt");
-const results = document.getElementById("results");
-
-const mockResults = T.results;
-
-/* ---- Recherche par image (dépôt de photo) ---- */
-const imageDrop = document.getElementById("image-drop");
-const imageInput = document.getElementById("image-input");
-const imageFile = document.getElementById("image-file");
-let hasImage = false;
-
-function showImageName(name) {
-  hasImage = true;
-  if (imageFile) {
-    imageFile.hidden = false;
-    imageFile.textContent = T.imageOk(name);
-  }
-}
-
-imageDrop?.addEventListener("click", () => imageInput?.click());
-imageInput?.addEventListener("change", () => {
-  if (imageInput.files && imageInput.files[0]) showImageName(imageInput.files[0].name);
-});
-["dragover", "dragenter"].forEach((ev) =>
-  imageDrop?.addEventListener(ev, (e) => { e.preventDefault(); imageDrop.classList.add("dragover"); })
-);
-["dragleave", "drop"].forEach((ev) =>
-  imageDrop?.addEventListener(ev, (e) => { e.preventDefault(); imageDrop.classList.remove("dragover"); })
-);
-imageDrop?.addEventListener("drop", (e) => {
-  const file = e.dataTransfer?.files?.[0];
-  if (file && file.type.startsWith("image/")) showImageName(file.name);
-});
-
-tryBtn?.addEventListener("click", () => {
-  const promptText = promptInput?.value.trim();
-  if (!promptText && !hasImage) { promptInput?.focus(); return; }
-
-  results.innerHTML = "";
-  mockResults.forEach((item, index) => {
-    const row = document.createElement("div");
-    row.className = "result-item";
-    row.textContent = item;
-    row.style.opacity = "0";
-    row.style.transform = "translateY(8px)";
-    row.style.transition = "all 260ms ease";
-    results.appendChild(row);
-    setTimeout(() => {
-      row.style.opacity = "1";
-      row.style.transform = "translateY(0)";
-    }, 110 * index);
-  });
-});
 
 /* ============ MODALE WAITLIST ============ */
 const modal = document.getElementById("waitlist-modal");
@@ -193,4 +123,60 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => io.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add("in-view"));
+}
+
+/* ============ INTERLUDE MODE AU SCROLL ============ */
+const fashionMotion = document.getElementById("fashion-motion");
+const fashionStage = document.getElementById("fashion-stage");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let fashionTicking = false;
+
+function clamp(value, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function smoothstep(value) {
+  const t = clamp(value);
+  return t * t * (3 - 2 * t);
+}
+
+function updateFashionMotion() {
+  fashionTicking = false;
+  if (!fashionMotion || !fashionStage || reduceMotion.matches) return;
+
+  const rect = fashionMotion.getBoundingClientRect();
+  const scrollDistance = Math.max(fashionMotion.offsetHeight - window.innerHeight, 1);
+  const progress = clamp(-rect.top / scrollDistance);
+  const travel = smoothstep(progress / 0.72);
+  const drop = smoothstep((progress - 0.68) / 0.26);
+  const startX = -Math.min(window.innerWidth * 0.3, 360);
+  const endX = Math.min(window.innerWidth * 0.22, 250);
+  const shirtX = startX + (endX - startX) * travel;
+  const shirtY = -30 + 40 * travel + 132 * drop;
+  const rotation = -18 + 390 * travel + 32 * drop;
+  const scale = 1 - 0.48 * drop;
+  const opacity = 1 - smoothstep((progress - 0.9) / 0.08);
+  const bagLift = -Math.sin(drop * Math.PI) * 10;
+
+  fashionStage.style.setProperty("--shirt-x", `${shirtX}px`);
+  fashionStage.style.setProperty("--shirt-y", `${shirtY}px`);
+  fashionStage.style.setProperty("--shirt-rotation", `${rotation}deg`);
+  fashionStage.style.setProperty("--shirt-scale", scale.toFixed(3));
+  fashionStage.style.setProperty("--shirt-opacity", opacity.toFixed(3));
+  fashionStage.style.setProperty("--bag-y", `${bagLift}px`);
+  fashionStage.style.setProperty("--shape-ring-y", `${progress * -22}px`);
+  fashionStage.style.setProperty("--shape-dot-y", `${progress * 90}px`);
+  fashionStage.style.setProperty("--shape-line-x", `${progress * -36}px`);
+}
+
+function requestFashionUpdate() {
+  if (fashionTicking) return;
+  fashionTicking = true;
+  requestAnimationFrame(updateFashionMotion);
+}
+
+if (fashionMotion && fashionStage && !reduceMotion.matches) {
+  updateFashionMotion();
+  window.addEventListener("scroll", requestFashionUpdate, { passive: true });
+  window.addEventListener("resize", requestFashionUpdate);
 }
