@@ -199,6 +199,9 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
   position: relative; height: 190vh; min-height: 1120px;
   margin-top: 90px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
+.hero .fashion-motion {
+  width: min(1180px, 90vw); margin-left: calc(50% - min(590px, 45vw)); text-align: left;
+}
 .fashion-motion-sticky {
   position: sticky; top: 86px; height: calc(100vh - 86px); min-height: 620px;
   overflow: hidden; display: grid; grid-template-columns: minmax(260px, .75fr) 1.25fr;
