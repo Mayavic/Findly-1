@@ -2,84 +2,14 @@
 const LANG = (document.documentElement.lang || "fr").toLowerCase().startsWith("en") ? "en" : "fr";
 const T = {
   fr: {
-    results: [
-      "👟 3 boutiques trouvées pour ta description — meilleur prix à partir de 89 €",
-      "✨ Alternative repérée : modèle très proche, mieux noté (4.7/5), livraison 24h",
-      "💸 Bonne affaire détectée : -32 % vs prix moyen constaté sur 30 jours",
-      "🌱 Option seconde main : identique, neuf avec étiquette, dans ta taille"
-    ],
-    imageOk: (name) => "✅ " + name + " — les agents vont chercher ce visuel.",
     successTitle: "Tu es sur la liste !",
     successBody: (email) => `Merci 🙌 On t'écrit à <strong>${email}</strong> dès l'ouverture de la bêta. Surveille ta boîte mail (et les spams, au cas où).`
   },
   en: {
-    results: [
-      "👟 3 stores found for your description — best price from €89",
-      "✨ Agent-spotted alternative: very close model, better rated (4.7/5), 24h delivery",
-      "💸 Deal detected: -32% vs 30-day average price",
-      "🌱 Second-hand option: identical, new with tags, in your size"
-    ],
-    imageOk: (name) => "✅ " + name + " — the agents will search for this visual.",
     successTitle: "You're on the list!",
     successBody: (email) => `Thanks 🙌 We'll email <strong>${email}</strong> the moment the beta opens. Keep an eye on your inbox (and spam, just in case).`
   }
 }[LANG];
-
-/* ============ DÉMO DE RECHERCHE (hero) ============ */
-const tryBtn = document.getElementById("try-btn");
-const promptInput = document.getElementById("prompt");
-const results = document.getElementById("results");
-
-const mockResults = T.results;
-
-/* ---- Recherche par image (dépôt de photo) ---- */
-const imageDrop = document.getElementById("image-drop");
-const imageInput = document.getElementById("image-input");
-const imageFile = document.getElementById("image-file");
-let hasImage = false;
-
-function showImageName(name) {
-  hasImage = true;
-  if (imageFile) {
-    imageFile.hidden = false;
-    imageFile.textContent = T.imageOk(name);
-  }
-}
-
-imageDrop?.addEventListener("click", () => imageInput?.click());
-imageInput?.addEventListener("change", () => {
-  if (imageInput.files && imageInput.files[0]) showImageName(imageInput.files[0].name);
-});
-["dragover", "dragenter"].forEach((ev) =>
-  imageDrop?.addEventListener(ev, (e) => { e.preventDefault(); imageDrop.classList.add("dragover"); })
-);
-["dragleave", "drop"].forEach((ev) =>
-  imageDrop?.addEventListener(ev, (e) => { e.preventDefault(); imageDrop.classList.remove("dragover"); })
-);
-imageDrop?.addEventListener("drop", (e) => {
-  const file = e.dataTransfer?.files?.[0];
-  if (file && file.type.startsWith("image/")) showImageName(file.name);
-});
-
-tryBtn?.addEventListener("click", () => {
-  const promptText = promptInput?.value.trim();
-  if (!promptText && !hasImage) { promptInput?.focus(); return; }
-
-  results.innerHTML = "";
-  mockResults.forEach((item, index) => {
-    const row = document.createElement("div");
-    row.className = "result-item";
-    row.textContent = item;
-    row.style.opacity = "0";
-    row.style.transform = "translateY(8px)";
-    row.style.transition = "all 260ms ease";
-    results.appendChild(row);
-    setTimeout(() => {
-      row.style.opacity = "1";
-      row.style.transform = "translateY(0)";
-    }, 110 * index);
-  });
-});
 
 /* ============ MODALE WAITLIST ============ */
 const modal = document.getElementById("waitlist-modal");
