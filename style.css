@@ -74,8 +74,8 @@ nav a:hover { opacity: 1; }
 .waitlist-btn:hover { background: #fff; color: var(--text); }
 .waitlist-btn.large { margin-top: 22px; padding: 16px 34px; font-size: 0.85rem; }
 
-.header-actions .waitlist-btn { border-color: var(--text); background: var(--text); }
-.header-actions .waitlist-btn:hover { background: #fff; color: var(--text); }
+.header-actions .waitlist-btn { border-color: var(--text); background: var(--text); color: #fff; }
+.header-actions .waitlist-btn:hover { background: var(--text); color: #fff; opacity: .78; }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .login-link {
