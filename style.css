@@ -194,6 +194,65 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
   color: var(--text); opacity: 0.55;
 }
 
+/* ---------- INTERLUDE MODE AU SCROLL ---------- */
+.fashion-motion {
+  position: relative; height: 190vh; min-height: 1120px;
+  margin-top: 90px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.fashion-motion-sticky {
+  position: sticky; top: 86px; height: calc(100vh - 86px); min-height: 620px;
+  overflow: hidden; display: grid; grid-template-columns: minmax(260px, .75fr) 1.25fr;
+  align-items: center; background: var(--bg);
+}
+.fashion-motion-copy { position: relative; z-index: 5; max-width: 390px; padding-left: clamp(8px, 3vw, 42px); }
+.fashion-motion-copy .eyebrow { margin-bottom: 20px; }
+.fashion-motion-copy h2 {
+  margin: 0; font-family: var(--serif); font-weight: 600;
+  font-size: clamp(2.7rem, 5.3vw, 5.2rem); line-height: .98; letter-spacing: -.025em;
+}
+.fashion-motion-copy > p:last-child {
+  max-width: 340px; margin: 24px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7;
+}
+.fashion-stage {
+  --shirt-x: -30vw; --shirt-y: -30px; --shirt-rotation: -18deg; --shirt-scale: 1;
+  --shirt-opacity: 1; --bag-y: 0px; --shape-ring-y: 0px; --shape-dot-y: 0px; --shape-line-x: 0px;
+  position: relative; height: min(68vh, 650px); min-height: 470px;
+  isolation: isolate; perspective: 900px;
+}
+.fashion-shirt {
+  position: absolute; z-index: 3; left: 50%; top: 23%; width: clamp(145px, 18vw, 230px);
+  color: var(--text); opacity: var(--shirt-opacity);
+  transform: translate3d(calc(-50% + var(--shirt-x)), var(--shirt-y), 0) rotate(var(--shirt-rotation)) scale(var(--shirt-scale));
+  transform-origin: 50% 48%; filter: drop-shadow(0 24px 24px rgba(10,10,10,.16));
+  will-change: transform, opacity;
+}
+.fashion-shirt svg, .fashion-bag svg { display: block; width: 100%; height: auto; }
+.fashion-bag {
+  position: absolute; z-index: 4; left: 72%; top: 48%; width: clamp(150px, 19vw, 220px);
+  color: var(--text); transform: translate3d(-50%, var(--bag-y), 0);
+  filter: drop-shadow(0 28px 30px rgba(10,10,10,.12)); will-change: transform;
+}
+.fashion-bag text { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 7px; }
+.fashion-shape { position: absolute; display: block; pointer-events: none; will-change: transform; }
+.fashion-shape-ring {
+  width: clamp(280px, 38vw, 510px); aspect-ratio: 1; border: 1px solid var(--text); border-radius: 50%;
+  left: 15%; top: 6%; transform: translate3d(0, var(--shape-ring-y), 0);
+}
+.fashion-shape-dot {
+  width: clamp(74px, 9vw, 128px); aspect-ratio: 1; border-radius: 50%; background: var(--text);
+  right: 4%; top: 6%; transform: translate3d(0, var(--shape-dot-y), 0);
+}
+.fashion-shape-line {
+  width: 45%; height: 1px; background: var(--text); right: 1%; bottom: 13%;
+  transform: translate3d(var(--shape-line-x), 0, 0) rotate(-24deg); transform-origin: right center;
+}
+.fashion-scroll-cue {
+  position: absolute; z-index: 6; left: clamp(8px, 3vw, 42px); bottom: 32px; margin: 0;
+  display: flex; align-items: center; gap: 12px; font-size: .68rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+}
+.fashion-scroll-cue span { width: 38px; height: 1px; background: currentColor; }
+
 /* ---------- STEPS ---------- */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
 .steps article { padding: 40px 30px; border-bottom: 1px solid var(--line); }
@@ -399,11 +458,35 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   .compare-head { display: none; }
   .card-footer { flex-direction: column; align-items: stretch; }
   #try-btn { width: 100%; }
+  .fashion-motion { height: 170vh; min-height: 1040px; }
+  .fashion-motion-sticky { grid-template-columns: 1fr; align-content: start; padding-top: 52px; }
+  .fashion-motion-copy { max-width: 560px; padding-right: 24px; }
+  .fashion-motion-copy h2 { font-size: clamp(2.5rem, 9vw, 4.5rem); }
+  .fashion-motion-copy > p:last-child { margin-top: 16px; }
+  .fashion-stage { position: absolute; inset: 28% 0 0; height: 66%; min-height: 380px; }
+  .fashion-bag { left: 72%; top: 48%; }
 }
 @media (max-width: 560px) {
   .trust-grid { grid-template-columns: 1fr; }
   .hero-stats { width: 100%; }
   .hero-stats div { flex: 1; padding: 18px 16px; }
+  .fashion-motion-sticky { top: 78px; height: calc(100vh - 78px); min-height: 590px; }
+  .fashion-motion-copy { padding-left: 6px; }
+  .fashion-motion-copy > p:last-child { max-width: 300px; font-size: .92rem; }
+  .fashion-stage { inset: 31% 0 0; }
+  .fashion-shirt { width: 138px; }
+  .fashion-bag { width: 142px; left: 72%; top: 54%; }
+  .fashion-shape-dot { right: 0; }
+  .fashion-scroll-cue { left: 6px; bottom: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .fashion-motion { height: auto; min-height: 720px; }
+  .fashion-motion-sticky { position: relative; top: auto; height: 720px; }
+  .fashion-stage { --shirt-x: 5vw; --shirt-y: -25px; --shirt-rotation: -8deg; --shirt-scale: .78; --shirt-opacity: 1; }
+  .fashion-scroll-cue { display: none; }
 }
 
 /* ---------- AUTH (login.html) ---------- */

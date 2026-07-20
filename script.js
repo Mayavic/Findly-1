@@ -194,3 +194,59 @@ if ("IntersectionObserver" in window) {
 } else {
   revealEls.forEach((el) => el.classList.add("in-view"));
 }
+
+/* ============ INTERLUDE MODE AU SCROLL ============ */
+const fashionMotion = document.getElementById("fashion-motion");
+const fashionStage = document.getElementById("fashion-stage");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let fashionTicking = false;
+
+function clamp(value, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function smoothstep(value) {
+  const t = clamp(value);
+  return t * t * (3 - 2 * t);
+}
+
+function updateFashionMotion() {
+  fashionTicking = false;
+  if (!fashionMotion || !fashionStage || reduceMotion.matches) return;
+
+  const rect = fashionMotion.getBoundingClientRect();
+  const scrollDistance = Math.max(fashionMotion.offsetHeight - window.innerHeight, 1);
+  const progress = clamp(-rect.top / scrollDistance);
+  const travel = smoothstep(progress / 0.72);
+  const drop = smoothstep((progress - 0.68) / 0.26);
+  const startX = -Math.min(window.innerWidth * 0.3, 360);
+  const endX = Math.min(window.innerWidth * 0.22, 250);
+  const shirtX = startX + (endX - startX) * travel;
+  const shirtY = -30 + 40 * travel + 132 * drop;
+  const rotation = -18 + 390 * travel + 32 * drop;
+  const scale = 1 - 0.48 * drop;
+  const opacity = 1 - smoothstep((progress - 0.9) / 0.08);
+  const bagLift = -Math.sin(drop * Math.PI) * 10;
+
+  fashionStage.style.setProperty("--shirt-x", `${shirtX}px`);
+  fashionStage.style.setProperty("--shirt-y", `${shirtY}px`);
+  fashionStage.style.setProperty("--shirt-rotation", `${rotation}deg`);
+  fashionStage.style.setProperty("--shirt-scale", scale.toFixed(3));
+  fashionStage.style.setProperty("--shirt-opacity", opacity.toFixed(3));
+  fashionStage.style.setProperty("--bag-y", `${bagLift}px`);
+  fashionStage.style.setProperty("--shape-ring-y", `${progress * -22}px`);
+  fashionStage.style.setProperty("--shape-dot-y", `${progress * 90}px`);
+  fashionStage.style.setProperty("--shape-line-x", `${progress * -36}px`);
+}
+
+function requestFashionUpdate() {
+  if (fashionTicking) return;
+  fashionTicking = true;
+  requestAnimationFrame(updateFashionMotion);
+}
+
+if (fashionMotion && fashionStage && !reduceMotion.matches) {
+  updateFashionMotion();
+  window.addEventListener("scroll", requestFashionUpdate, { passive: true });
+  window.addEventListener("resize", requestFashionUpdate);
+}
