@@ -125,56 +125,17 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("in-view"));
 }
 
-/* ============ INTERLUDE MODE AU SCROLL ============ */
-const fashionMotion = document.getElementById("fashion-motion");
-const fashionStage = document.getElementById("fashion-stage");
+/* ============ FLUX DES BOUTIQUES ============ */
+const fashionStream = document.querySelector(".fashion-stream");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let fashionTicking = false;
 
-function clamp(value, min = 0, max = 1) {
-  return Math.min(max, Math.max(min, value));
-}
-
-function smoothstep(value) {
-  const t = clamp(value);
-  return t * t * (3 - 2 * t);
-}
-
-function updateFashionMotion() {
-  fashionTicking = false;
-  if (!fashionMotion || !fashionStage || reduceMotion.matches) return;
-
-  const rect = fashionMotion.getBoundingClientRect();
-  const scrollDistance = Math.max(fashionMotion.offsetHeight - window.innerHeight, 1);
-  const progress = clamp(-rect.top / scrollDistance);
-  const scan = smoothstep((progress - 0.16) / 0.48);
-  const beamOpacity = smoothstep((progress - 0.1) / 0.08) * (1 - smoothstep((progress - 0.68) / 0.08));
-  const result = smoothstep((progress - 0.72) / 0.18);
-  const scanDistance = Math.max(fashionStage.clientHeight * 0.54, 220);
-  const setProgress = (name, value) => fashionStage.style.setProperty(name, clamp(value).toFixed(3));
-
-  fashionStage.style.setProperty("--scan-y", `${scan * scanDistance}px`);
-  fashionStage.style.setProperty("--beam-opacity", beamOpacity.toFixed(3));
-  setProgress("--source-one", (progress - 0.02) / 0.1);
-  setProgress("--source-two", (progress - 0.09) / 0.1);
-  setProgress("--source-three", (progress - 0.16) / 0.1);
-  setProgress("--criterion-one", (progress - 0.28) / 0.1);
-  setProgress("--criterion-two", (progress - 0.42) / 0.1);
-  setProgress("--criterion-three", (progress - 0.56) / 0.1);
-  fashionStage.style.setProperty("--result-opacity", result.toFixed(3));
-  fashionStage.style.setProperty("--result-y", `${(1 - result) * 18}px`);
-  fashionStage.style.setProperty("--analysis-opacity", (1 - result * 0.78).toFixed(3));
-  fashionStage.style.setProperty("--garment-scale", (0.96 + scan * 0.04).toFixed(3));
-}
-
-function requestFashionUpdate() {
-  if (fashionTicking) return;
-  fashionTicking = true;
-  requestAnimationFrame(updateFashionMotion);
-}
-
-if (fashionMotion && fashionStage && !reduceMotion.matches) {
-  updateFashionMotion();
-  window.addEventListener("scroll", requestFashionUpdate, { passive: true });
-  window.addEventListener("resize", requestFashionUpdate);
+if (fashionStream && !reduceMotion.matches) {
+  if ("IntersectionObserver" in window) {
+    const streamObserver = new IntersectionObserver(([entry]) => {
+      fashionStream.classList.toggle("is-active", entry.isIntersecting);
+    }, { threshold: 0.01 });
+    streamObserver.observe(fashionStream);
+  } else {
+    fashionStream.classList.add("is-active");
+  }
 }

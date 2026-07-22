@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260720-9" />
+  <link rel="stylesheet" href="style.css?v=20260722-5" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -43,72 +43,112 @@
         Taille, couleur, disponibilité, prix, livraison : Findly prend tout en compte, pour que tu n’aies plus à le faire.
       </p>
 
-      <!-- ================= INTERLUDE MODE AU SCROLL ================= -->
-      <section class="fashion-motion" id="fashion-motion" aria-labelledby="fashion-motion-title">
-        <div class="fashion-motion-sticky">
-          <div class="fashion-motion-copy">
-            <p class="eyebrow">De l’envie à la pièce</p>
-            <h2 id="fashion-motion-title">Tu imagines.<br />Findly la trouve.</h2>
-            <p>Une recherche suffit pour parcourir la mode et faire émerger la pièce juste.</p>
-          </div>
-
-          <div class="fashion-stage" id="fashion-stage" aria-hidden="true">
-            <div class="scanner-frame">
-              <div class="scanner-status"><span>Analyse Findly</span><strong>Recherche multi-source</strong></div>
-
-              <div class="scanner-sources">
-                <span class="scanner-source source-one"><i></i>Marques officielles</span>
-                <span class="scanner-source source-two"><i></i>Multimarques</span>
-                <span class="scanner-source source-three"><i></i>Seconde main</span>
-              </div>
-
-              <div class="scanner-garment">
-                <span class="scanner-index">Pièce 01 — Robe noire</span>
-                <svg viewBox="0 0 260 390" role="presentation">
-                  <path d="M95 20c8 17 62 17 70 0l28 23-25 76 43 233H49l43-233-25-76Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                  <path d="M95 20c6 31 64 31 70 0M92 119h76M74 241h112" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity=".28"/>
-                </svg>
-                <span class="scanner-axis scanner-axis-v"></span>
-                <span class="scanner-axis scanner-axis-h"></span>
-                <span class="scanner-beam"><i></i></span>
-              </div>
-
-              <div class="scanner-criteria">
-                <span class="scanner-criterion criterion-one"><i>01</i><b>Taille</b><em>M disponible</em></span>
-                <span class="scanner-criterion criterion-two"><i>02</i><b>Prix</b><em>Dans ton budget</em></span>
-                <span class="scanner-criterion criterion-three"><i>03</i><b>Livraison</b><em>2–3 jours</em></span>
-              </div>
-
-              <div class="scanner-result">
-                <span class="scanner-result-mark">✓</span>
-                <span><small>Match trouvé</small><strong>La pièce juste</strong></span>
-                <em>96%</em>
-              </div>
-            </div>
-          </div>
-
-          <p class="fashion-scroll-cue"><span></span>Fais défiler</p>
-        </div>
-      </section>
-
       <section class="cta reveal" id="contact">
         <h2>Rejoins le Club Findly</h2>
         <p>Accède avant tout le monde à toute la mode, en une seule recherche.</p>
         <button class="waitlist-btn large" data-waitlist>S’inscrire en avant-première →</button>
       </section>
 
+      <section class="fashion-stream" aria-label="Aperçu animé de différentes boutiques de mode">
+        <div class="fashion-stream-head">
+          <span>Une recherche</span><strong>Toutes les boutiques</strong><span>En temps réel</span>
+        </div>
+        <div class="fashion-stream-grid">
+          <div class="fashion-stream-column stream-up">
+            <div class="fashion-stream-set">
+              <article class="site-card card-light">
+                <div class="site-card-nav"><strong>ÉDITION 01</strong><span>Menu&nbsp;&nbsp; Recherche&nbsp;&nbsp; Sac</span></div>
+                <img src="assets/editorial-black-men.jpg" alt="Silhouette masculine noire dans un paysage minéral" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Nouveauté</small><strong>Le noir essentiel</strong><span>Collection homme</span></div>
+              </article>
+              <article class="site-card card-light">
+                <div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Robes</span></div>
+                <img src="assets/editorial-botanical-women.jpg" alt="Robe botanique colorée dans un jardin tropical" width="1024" height="1536" />
+                <div class="site-card-copy"><small>Jardin solaire</small><strong>La robe en mouvement</strong><span>Collection femme</span></div>
+              </article>
+              <article class="site-card card-light">
+                <div class="site-card-nav"><strong>ÉDITION 03</strong><span>La collection</span></div>
+                <img src="assets/editorial-sculptural-women.jpg" alt="Robe noire sculpturale dans un décor ivoire" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Volumes</small><strong>La silhouette sculptée</strong><span>Voir la sélection</span></div>
+              </article>
+              <article class="site-card card-light card-landscape card-priority-left">
+                <div class="site-card-nav"><strong>ÉDITION 04</strong><span>Homme&nbsp;&nbsp; Littoral</span></div>
+                <img src="assets/editorial-coastal-men.jpg" alt="Tailleur masculin clair au bord de l’océan" width="1536" height="1024" />
+                <div class="site-card-copy"><small>L’air du large</small><strong>Le tailoring d’été</strong><span>Collection homme</span></div>
+              </article>
+            </div>
+            <div class="fashion-stream-set" aria-hidden="true">
+              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 01</strong><span>Menu&nbsp;&nbsp; Recherche&nbsp;&nbsp; Sac</span></div><img src="assets/editorial-black-men.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Nouveauté</small><strong>Le noir essentiel</strong><span>Collection homme</span></div></article>
+              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Robes</span></div><img src="assets/editorial-botanical-women.jpg" alt="" width="1024" height="1536" /><div class="site-card-copy"><small>Jardin solaire</small><strong>La robe en mouvement</strong><span>Collection femme</span></div></article>
+              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 03</strong><span>La collection</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Volumes</small><strong>La silhouette sculptée</strong><span>Voir la sélection</span></div></article>
+              <article class="site-card card-light card-landscape card-priority-left"><div class="site-card-nav"><strong>ÉDITION 04</strong><span>Homme&nbsp;&nbsp; Littoral</span></div><img src="assets/editorial-coastal-men.jpg" alt="" width="1536" height="1024" /><div class="site-card-copy"><small>L’air du large</small><strong>Le tailoring d’été</strong><span>Collection homme</span></div></article>
+            </div>
+          </div>
+
+          <div class="fashion-stream-column stream-down">
+            <div class="fashion-stream-set">
+              <article class="site-card card-light card-tall">
+                <div class="site-card-nav"><strong>SÉLECTION 05</strong><span>Femme&nbsp;&nbsp; Studio</span></div>
+                <img src="assets/editorial-sculptural-women.jpg" alt="Silhouette féminine en robe noire architecturale" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Ligne pure</small><strong>L’élégance en mouvement</strong><span>Découvrir</span></div>
+              </article>
+              <article class="site-card card-light card-wide card-order-urban">
+                <div class="site-card-nav"><strong>SÉLECTION 06</strong><span>Vestiaire urbain</span></div>
+                <img src="assets/editorial-urban-unisex.jpg" alt="Deux silhouettes mixtes dans un décor urbain" width="1254" height="1254" />
+                <div class="site-card-copy"><small>En ville</small><strong>Le quotidien en mouvement</strong><span>Découvrir</span></div>
+              </article>
+              <article class="site-card card-light card-order-color">
+                <div class="site-card-nav"><strong>SÉLECTION 07</strong><span>Femme</span></div>
+                <img src="assets/editorial-botanical-women.jpg" alt="Silhouette féminine dans une robe botanique" width="1024" height="1536" />
+                <div class="site-card-copy"><small>Style du jour</small><strong>Couleurs en liberté</strong><span>Voir les pièces</span></div>
+              </article>
+              <article class="site-card card-light card-square card-order-outdoor">
+                <div class="site-card-nav"><strong>SÉLECTION 08</strong><span>Homme&nbsp;&nbsp; Plein air</span></div>
+                <img src="assets/editorial-outdoor-men.jpg" alt="Silhouette masculine technique sur une crête volcanique" width="1254" height="1254" />
+                <div class="site-card-copy"><small>Grand air</small><strong>Les essentiels techniques</strong><span>Collection homme</span></div>
+              </article>
+            </div>
+            <div class="fashion-stream-set" aria-hidden="true">
+              <article class="site-card card-light card-tall"><div class="site-card-nav"><strong>SÉLECTION 05</strong><span>Femme&nbsp;&nbsp; Studio</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Ligne pure</small><strong>L’élégance en mouvement</strong><span>Découvrir</span></div></article>
+              <article class="site-card card-light card-wide card-order-urban"><div class="site-card-nav"><strong>SÉLECTION 06</strong><span>Vestiaire urbain</span></div><img src="assets/editorial-urban-unisex.jpg" alt="" width="1254" height="1254" /><div class="site-card-copy"><small>En ville</small><strong>Le quotidien en mouvement</strong><span>Découvrir</span></div></article>
+              <article class="site-card card-light card-order-color"><div class="site-card-nav"><strong>SÉLECTION 07</strong><span>Femme</span></div><img src="assets/editorial-botanical-women.jpg" alt="" width="1024" height="1536" /><div class="site-card-copy"><small>Style du jour</small><strong>Couleurs en liberté</strong><span>Voir les pièces</span></div></article>
+              <article class="site-card card-light card-square card-order-outdoor"><div class="site-card-nav"><strong>SÉLECTION 08</strong><span>Homme&nbsp;&nbsp; Plein air</span></div><img src="assets/editorial-outdoor-men.jpg" alt="" width="1254" height="1254" /><div class="site-card-copy"><small>Grand air</small><strong>Les essentiels techniques</strong><span>Collection homme</span></div></article>
+            </div>
+          </div>
+
+          <div class="fashion-stream-column stream-up stream-slow">
+            <div class="fashion-stream-set">
+              <article class="site-card card-black card-tall">
+                <div class="site-card-nav"><strong>FINDLY / 03</strong><span>Match</span></div>
+                <img src="assets/editorial-sculptural-women.jpg" alt="Silhouette féminine noire proposée par Findly" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Correspondance 96%</small><strong>La pièce juste</strong><span>Taille disponible</span></div>
+              </article>
+              <article class="site-card card-light">
+                <div class="site-card-nav"><strong>ÉDITION 09</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div>
+                <img src="assets/editorial-black-men.jpg" alt="Silhouette masculine noire dans une carrière claire" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Vestiaire</small><strong>Essentiels du quotidien</strong><span>Voir la sélection</span></div>
+              </article>
+              <article class="site-card card-pink"><small>CARNET D’ÉTÉ</small><strong>LE<br />GRAND<br />TOUR</strong><span>Sélection saisonnière</span></article>
+              <article class="site-card card-light card-landscape card-priority-right">
+                <div class="site-card-nav"><strong>ÉDITION 10</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div>
+                <img src="assets/editorial-court-men.jpg" alt="Silhouette masculine élégante sur un court en terre battue" width="1536" height="1024" />
+                <div class="site-card-copy"><small>Élégance sportive</small><strong>Le nouveau vestiaire</strong><span>Collection homme</span></div>
+              </article>
+            </div>
+            <div class="fashion-stream-set" aria-hidden="true">
+              <article class="site-card card-black card-tall"><div class="site-card-nav"><strong>FINDLY / 03</strong><span>Match</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Correspondance 96%</small><strong>La pièce juste</strong><span>Taille disponible</span></div></article>
+              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 09</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div><img src="assets/editorial-black-men.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Vestiaire</small><strong>Essentiels du quotidien</strong><span>Voir la sélection</span></div></article>
+              <article class="site-card card-pink"><small>CARNET D’ÉTÉ</small><strong>LE<br />GRAND<br />TOUR</strong><span>Sélection saisonnière</span></article>
+              <article class="site-card card-light card-landscape card-priority-right"><div class="site-card-nav"><strong>ÉDITION 10</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div><img src="assets/editorial-court-men.jpg" alt="" width="1536" height="1024" /><div class="site-card-copy"><small>Élégance sportive</small><strong>Le nouveau vestiaire</strong><span>Collection homme</span></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="hero-stats">
         <div><strong>Une recherche</strong><span>Exprime exactement ton envie</span></div>
         <div><strong>Toutes les sources</strong><span>Sites officiels, multimarques et plateformes de seconde main</span></div>
         <div><strong>La pièce juste</strong><span>Prix, taille et disponibilité pris en compte</span></div>
-      </div>
-    </section>
-
-    <!-- ================= 2. LOGOS / SOCIAL PROOF ================= -->
-    <section class="logos reveal">
-      <p>Partout où la mode se trouve en ligne</p>
-      <div class="logo-row">
-        <span>Sites officiels</span><span>Sites multimarques</span><span>Plateformes de seconde main</span>
       </div>
     </section>
 
@@ -147,7 +187,7 @@
       <div class="feature-grid">
         <article><span class="feature-num">01</span><h3>Le vrai prix</h3><p>Prix comparés et historique vérifié pour distinguer la bonne affaire de la fausse promotion.</p></article>
         <article><span class="feature-num">02</span><h3>Disponible dans ta taille</h3><p>Findly écarte les pièces déjà épuisées. Fini la rupture de stock découverte après trois clics.</p></article>
-        <article><span class="feature-num">03</span><h3>Les avis réunis</h3><p>Les notes et les retours utiles sont regroupés pour t’aider à choisir en connaissance de cause.</p></article>
+        <article><span class="feature-num">03</span><h3>Totalement gratuit</h3><p>Findly agit simplement comme une plateforme intermédiaire et ne prélève aucune commission auprès du client.</p></article>
       </div>
     </section>
 
@@ -243,6 +283,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="supabase-client.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260722-2"></script>
 </body>
 </html>
