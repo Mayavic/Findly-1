@@ -155,6 +155,7 @@ const demoProductPrice = document.getElementById("demo-product-price");
 const demoProductLink = document.getElementById("demo-product-link");
 const demoProductLinkLabel = document.getElementById("demo-product-link-label");
 const demoProductNote = document.getElementById("demo-product-note");
+const demoResults = document.getElementById("demo-results");
 
 const demoScenarios = {
   search: {
@@ -194,7 +195,8 @@ const demoScenarios = {
     link: "#contact",
     linkLabel: "Voir la recommandation",
     note: "Visuel original et recommandation fictive présentés pour illustrer le futur mode personal shopper de Findly.",
-    submitLabel: "Trouver ma tenue"
+    submitLabel: "Trouver ma tenue",
+    hasSecondary: false
   }
 };
 
@@ -213,6 +215,7 @@ function setDemoScenario(name) {
   if (demoProductLinkLabel) demoProductLinkLabel.textContent = scenario.linkLabel;
   if (demoProductNote) demoProductNote.textContent = scenario.note;
   if (demoSubmit) demoSubmit.innerHTML = `${scenario.submitLabel} <span aria-hidden="true">→</span>`;
+  if (demoResults) demoResults.classList.toggle("single-result", scenario.hasSecondary === false);
   if (demoProductLink) {
     demoProductLink.href = scenario.link;
     if (scenario.link.startsWith("http")) {
