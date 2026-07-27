@@ -139,3 +139,126 @@ if (fashionStream && !reduceMotion.matches) {
     fashionStream.classList.add("is-active");
   }
 }
+
+/* ============ DÉMONSTRATION PRODUIT ============ */
+const productDemo = document.querySelector(".product-demo");
+const demoForm = document.getElementById("demo-search");
+const demoQuery = document.getElementById("demo-query");
+const demoResult = document.getElementById("demo-result");
+const demoSubmit = document.getElementById("demo-submit");
+const demoTabs = document.querySelectorAll("[data-demo-scenario]");
+const demoProductImage = document.getElementById("demo-product-image");
+const demoProductLabel = document.getElementById("demo-product-label");
+const demoProductTitle = document.getElementById("demo-product-title");
+const demoProductDescription = document.getElementById("demo-product-description");
+const demoProductPrice = document.getElementById("demo-product-price");
+const demoProductLink = document.getElementById("demo-product-link");
+const demoProductLinkLabel = document.getElementById("demo-product-link-label");
+const demoProductNote = document.getElementById("demo-product-note");
+
+const demoScenarios = {
+  search: {
+    query: "Short Nike AeroSwift rose, taille S",
+    image: "assets/nike-aeroswift-pink-example.jpg",
+    alt: "Short de running Nike AeroSwift rose porté, présenté dans le résultat d’exemple",
+    label: "Meilleur prix trouvé",
+    title: "Nike AeroSwift",
+    description: "Short de running femme · Hyper Pink",
+    price: "79,99 €",
+    link: "https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645",
+    linkLabel: "Voir l’offre",
+    note: "Visuel produit utilisé à titre d’exemple. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.",
+    submitLabel: "Trouver la pièce"
+  },
+  photo: {
+    query: "Photo ajoutée — short de running rose",
+    image: "assets/nike-aeroswift-pink-example.jpg",
+    alt: "Short de running rose retrouvé à partir d’une photo",
+    label: "Pièce retrouvée",
+    title: "Nike AeroSwift",
+    description: "Modèle identifié · Hyper Pink",
+    price: "79,99 €",
+    link: "https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645",
+    linkLabel: "Voir l’offre",
+    note: "Simulation d’une recherche visuelle. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.",
+    submitLabel: "Retrouver la pièce"
+  },
+  occasion: {
+    query: "Robe élégante pour un mariage en Sicile · 250 € max",
+    image: "assets/editorial-sicily-wedding-dress.jpg",
+    alt: "Robe longue d’été colorée recommandée pour un mariage en Sicile",
+    label: "Choix du personal shopper",
+    title: "Robe longue Méditerranée",
+    description: "Imprimé coloré · Fluide et élégante",
+    price: "229 €",
+    link: "#contact",
+    linkLabel: "Voir la recommandation",
+    note: "Visuel original et recommandation fictive présentés pour illustrer le futur mode personal shopper de Findly.",
+    submitLabel: "Trouver ma tenue"
+  }
+};
+
+function setDemoScenario(name) {
+  const scenario = demoScenarios[name];
+  if (!scenario) return;
+  if (demoQuery) demoQuery.value = scenario.query;
+  if (demoProductImage) {
+    demoProductImage.src = scenario.image;
+    demoProductImage.alt = scenario.alt;
+  }
+  if (demoProductLabel) demoProductLabel.textContent = scenario.label;
+  if (demoProductTitle) demoProductTitle.textContent = scenario.title;
+  if (demoProductDescription) demoProductDescription.textContent = scenario.description;
+  if (demoProductPrice) demoProductPrice.textContent = scenario.price;
+  if (demoProductLinkLabel) demoProductLinkLabel.textContent = scenario.linkLabel;
+  if (demoProductNote) demoProductNote.textContent = scenario.note;
+  if (demoSubmit) demoSubmit.innerHTML = `${scenario.submitLabel} <span aria-hidden="true">→</span>`;
+  if (demoProductLink) {
+    demoProductLink.href = scenario.link;
+    if (scenario.link.startsWith("http")) {
+      demoProductLink.target = "_blank";
+      demoProductLink.rel = "noopener noreferrer";
+    } else {
+      demoProductLink.removeAttribute("target");
+      demoProductLink.removeAttribute("rel");
+    }
+  }
+}
+
+demoTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    demoTabs.forEach((item) => {
+      const selected = item === tab;
+      item.classList.toggle("is-active", selected);
+      item.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+    setDemoScenario(tab.dataset.demoScenario);
+  });
+});
+
+demoForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!productDemo || productDemo.classList.contains("is-searching")) return;
+
+  const submitButton = demoForm.querySelector("button[type='submit']");
+  const initialLabel = submitButton?.innerHTML;
+  productDemo.classList.add("is-searching");
+  productDemo.classList.remove("is-complete");
+  demoResult?.setAttribute("aria-busy", "true");
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Analyse en cours…";
+  }
+
+  const completeDemo = () => {
+    productDemo.classList.remove("is-searching");
+    productDemo.classList.add("is-complete");
+    demoResult?.setAttribute("aria-busy", "false");
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerHTML = initialLabel || "Trouver la pièce →";
+    }
+  };
+
+  window.setTimeout(completeDemo, reduceMotion.matches ? 120 : 1100);
+});

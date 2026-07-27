@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Findly — Le comparateur de vêtements par IA</title>
-  <meta name="description" content="Findly compare des milliers de vêtements et chaussures sur tous les sites à partir d'une simple description en langage naturel. Meilleur prix, meilleur style, en une recherche." />
+  <title>Findly — Le moteur de recherche de toute la mode</title>
+  <meta name="description" content="Findly parcourt les boutiques, revendeurs et plateformes de seconde main pour trouver la bonne pièce, disponible dans ta taille, au meilleur endroit." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260722-5" />
+  <link rel="stylesheet" href="style.css?v=20260727-5" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -38,15 +38,56 @@
         <span>Toute la mode.</span>
       </h1>
       <p class="hero-text">
-        Trouver la bonne pièce ne devrait pas prendre des heures. Findly parcourt les boutiques, les revendeurs
-        et les plateformes de seconde main pour sélectionner, en quelques secondes, l’offre la plus adaptée.
+        Trouver la bonne pièce (neuve ou de seconde main) ne devrait pas prendre des heures. Findly parcourt toutes
+        les boutiques et revendeurs en ligne pour sélectionner, en quelques secondes, l’offre la plus adaptée.
         Taille, couleur, disponibilité, prix, livraison : Findly prend tout en compte, pour que tu n’aies plus à le faire.
       </p>
 
+      <section class="product-demo is-complete" aria-labelledby="demo-title">
+        <div class="product-demo-head">
+          <div>
+            <p class="eyebrow">Simulation de l’expérience</p>
+            <h2 id="demo-title">Une recherche, une réponse claire.</h2>
+          </div>
+        </div>
+
+        <div class="demo-tabs" role="tablist" aria-label="Modes de recherche">
+          <button type="button" class="is-active" role="tab" aria-selected="true" data-demo-scenario="search">Décrire la pièce</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="photo">Ajouter une photo</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="occasion">Me conseiller</button>
+        </div>
+
+        <form class="demo-search" id="demo-search">
+          <label class="sr-only" for="demo-query">Exemple de recherche</label>
+          <input id="demo-query" type="text" value="Short Nike AeroSwift rose, taille S" autocomplete="off" />
+          <button type="submit" id="demo-submit">Trouver la pièce <span aria-hidden="true">→</span></button>
+        </form>
+
+        <div class="demo-result" id="demo-result" aria-live="polite">
+          <div class="demo-product-image">
+            <img id="demo-product-image" src="assets/nike-aeroswift-pink-example.jpg" alt="Short de running Nike AeroSwift rose porté, présenté dans le résultat d’exemple" width="1254" height="1254" />
+          </div>
+          <div class="demo-product-info">
+            <small id="demo-product-label">Meilleur prix trouvé</small>
+            <h3 id="demo-product-title">Nike AeroSwift</h3>
+            <p id="demo-product-description">Short de running femme · Hyper Pink</p>
+            <div class="demo-price"><strong id="demo-product-price">79,99 €</strong></div>
+            <a id="demo-product-link" href="https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645" class="demo-offer-link" target="_blank" rel="noopener noreferrer"><span id="demo-product-link-label">Voir l’offre</span><span aria-hidden="true">↗</span></a>
+            <p class="demo-note" id="demo-product-note">Visuel produit utilisé à titre d’exemple. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="cta reveal" id="contact">
-        <h2>Rejoins le Club Findly</h2>
-        <p>Accède avant tout le monde à toute la mode, en une seule recherche.</p>
-        <button class="waitlist-btn large" data-waitlist>S’inscrire en avant-première →</button>
+        <div class="cta-heading">
+          <p>Accès anticipé</p>
+          <h2>Rejoins le Club<br /><em>Findly.</em></h2>
+        </div>
+        <div class="cta-action">
+          <p>Accède avant tout le monde à toute la mode,<br />en une seule recherche.</p>
+          <button class="waitlist-btn large" data-waitlist>S’inscrire en avant-première <span aria-hidden="true">→</span></button>
+          <small>Gratuit · Désinscription en un clic</small>
+        </div>
       </section>
 
       <section class="fashion-stream" aria-label="Aperçu animé de différentes boutiques de mode">
@@ -62,9 +103,9 @@
                 <div class="site-card-copy"><small>Nouveauté</small><strong>Le noir essentiel</strong><span>Collection homme</span></div>
               </article>
               <article class="site-card card-light">
-                <div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Robes</span></div>
-                <img src="assets/editorial-botanical-women.jpg" alt="Robe botanique colorée dans un jardin tropical" width="1024" height="1536" />
-                <div class="site-card-copy"><small>Jardin solaire</small><strong>La robe en mouvement</strong><span>Collection femme</span></div>
+                <div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Ville</span></div>
+                <img src="assets/editorial-urban-unisex.jpg" alt="Deux silhouettes mixtes dans un décor urbain" width="1254" height="1254" />
+                <div class="site-card-copy"><small>En mouvement</small><strong>Le vestiaire urbain</strong><span>Collection mixte</span></div>
               </article>
               <article class="site-card card-light">
                 <div class="site-card-nav"><strong>ÉDITION 03</strong><span>La collection</span></div>
@@ -79,7 +120,7 @@
             </div>
             <div class="fashion-stream-set" aria-hidden="true">
               <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 01</strong><span>Menu&nbsp;&nbsp; Recherche&nbsp;&nbsp; Sac</span></div><img src="assets/editorial-black-men.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Nouveauté</small><strong>Le noir essentiel</strong><span>Collection homme</span></div></article>
-              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Robes</span></div><img src="assets/editorial-botanical-women.jpg" alt="" width="1024" height="1536" /><div class="site-card-copy"><small>Jardin solaire</small><strong>La robe en mouvement</strong><span>Collection femme</span></div></article>
+              <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 02</strong><span>Nouveautés&nbsp;&nbsp; Ville</span></div><img src="assets/editorial-urban-unisex.jpg" alt="" width="1254" height="1254" /><div class="site-card-copy"><small>En mouvement</small><strong>Le vestiaire urbain</strong><span>Collection mixte</span></div></article>
               <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 03</strong><span>La collection</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Volumes</small><strong>La silhouette sculptée</strong><span>Voir la sélection</span></div></article>
               <article class="site-card card-light card-landscape card-priority-left"><div class="site-card-nav"><strong>ÉDITION 04</strong><span>Homme&nbsp;&nbsp; Littoral</span></div><img src="assets/editorial-coastal-men.jpg" alt="" width="1536" height="1024" /><div class="site-card-copy"><small>L’air du large</small><strong>Le tailoring d’été</strong><span>Collection homme</span></div></article>
             </div>
@@ -99,8 +140,8 @@
               </article>
               <article class="site-card card-light card-order-color">
                 <div class="site-card-nav"><strong>SÉLECTION 07</strong><span>Femme</span></div>
-                <img src="assets/editorial-botanical-women.jpg" alt="Silhouette féminine dans une robe botanique" width="1024" height="1536" />
-                <div class="site-card-copy"><small>Style du jour</small><strong>Couleurs en liberté</strong><span>Voir les pièces</span></div>
+                <img src="assets/editorial-sculptural-women.jpg" alt="Silhouette féminine en robe noire sculpturale" width="1122" height="1402" />
+                <div class="site-card-copy"><small>Style du jour</small><strong>Lignes contemporaines</strong><span>Voir les pièces</span></div>
               </article>
               <article class="site-card card-light card-square card-order-outdoor">
                 <div class="site-card-nav"><strong>SÉLECTION 08</strong><span>Homme&nbsp;&nbsp; Plein air</span></div>
@@ -111,7 +152,7 @@
             <div class="fashion-stream-set" aria-hidden="true">
               <article class="site-card card-light card-tall"><div class="site-card-nav"><strong>SÉLECTION 05</strong><span>Femme&nbsp;&nbsp; Studio</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Ligne pure</small><strong>L’élégance en mouvement</strong><span>Découvrir</span></div></article>
               <article class="site-card card-light card-wide card-order-urban"><div class="site-card-nav"><strong>SÉLECTION 06</strong><span>Vestiaire urbain</span></div><img src="assets/editorial-urban-unisex.jpg" alt="" width="1254" height="1254" /><div class="site-card-copy"><small>En ville</small><strong>Le quotidien en mouvement</strong><span>Découvrir</span></div></article>
-              <article class="site-card card-light card-order-color"><div class="site-card-nav"><strong>SÉLECTION 07</strong><span>Femme</span></div><img src="assets/editorial-botanical-women.jpg" alt="" width="1024" height="1536" /><div class="site-card-copy"><small>Style du jour</small><strong>Couleurs en liberté</strong><span>Voir les pièces</span></div></article>
+              <article class="site-card card-light card-order-color"><div class="site-card-nav"><strong>SÉLECTION 07</strong><span>Femme</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Style du jour</small><strong>Lignes contemporaines</strong><span>Voir les pièces</span></div></article>
               <article class="site-card card-light card-square card-order-outdoor"><div class="site-card-nav"><strong>SÉLECTION 08</strong><span>Homme&nbsp;&nbsp; Plein air</span></div><img src="assets/editorial-outdoor-men.jpg" alt="" width="1254" height="1254" /><div class="site-card-copy"><small>Grand air</small><strong>Les essentiels techniques</strong><span>Collection homme</span></div></article>
             </div>
           </div>
@@ -121,7 +162,7 @@
               <article class="site-card card-black card-tall">
                 <div class="site-card-nav"><strong>FINDLY / 03</strong><span>Match</span></div>
                 <img src="assets/editorial-sculptural-women.jpg" alt="Silhouette féminine noire proposée par Findly" width="1122" height="1402" />
-                <div class="site-card-copy"><small>Correspondance 96%</small><strong>La pièce juste</strong><span>Taille disponible</span></div>
+                <div class="site-card-copy"><small>Meilleure offre</small><strong>La pièce juste</strong><span>Taille disponible</span></div>
               </article>
               <article class="site-card card-light">
                 <div class="site-card-nav"><strong>ÉDITION 09</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div>
@@ -129,34 +170,29 @@
                 <div class="site-card-copy"><small>Vestiaire</small><strong>Essentiels du quotidien</strong><span>Voir la sélection</span></div>
               </article>
               <article class="site-card card-pink"><small>CARNET D’ÉTÉ</small><strong>LE<br />GRAND<br />TOUR</strong><span>Sélection saisonnière</span></article>
-              <article class="site-card card-light card-landscape card-priority-right">
+              <article class="site-card card-light card-landscape card-court card-priority-right">
                 <div class="site-card-nav"><strong>ÉDITION 10</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div>
                 <img src="assets/editorial-court-men.jpg" alt="Silhouette masculine élégante sur un court en terre battue" width="1536" height="1024" />
                 <div class="site-card-copy"><small>Élégance sportive</small><strong>Le nouveau vestiaire</strong><span>Collection homme</span></div>
               </article>
             </div>
             <div class="fashion-stream-set" aria-hidden="true">
-              <article class="site-card card-black card-tall"><div class="site-card-nav"><strong>FINDLY / 03</strong><span>Match</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Correspondance 96%</small><strong>La pièce juste</strong><span>Taille disponible</span></div></article>
+              <article class="site-card card-black card-tall"><div class="site-card-nav"><strong>FINDLY / 03</strong><span>Match</span></div><img src="assets/editorial-sculptural-women.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Meilleure offre</small><strong>La pièce juste</strong><span>Taille disponible</span></div></article>
               <article class="site-card card-light"><div class="site-card-nav"><strong>ÉDITION 09</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div><img src="assets/editorial-black-men.jpg" alt="" width="1122" height="1402" /><div class="site-card-copy"><small>Vestiaire</small><strong>Essentiels du quotidien</strong><span>Voir la sélection</span></div></article>
               <article class="site-card card-pink"><small>CARNET D’ÉTÉ</small><strong>LE<br />GRAND<br />TOUR</strong><span>Sélection saisonnière</span></article>
-              <article class="site-card card-light card-landscape card-priority-right"><div class="site-card-nav"><strong>ÉDITION 10</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div><img src="assets/editorial-court-men.jpg" alt="" width="1536" height="1024" /><div class="site-card-copy"><small>Élégance sportive</small><strong>Le nouveau vestiaire</strong><span>Collection homme</span></div></article>
+              <article class="site-card card-light card-landscape card-court card-priority-right"><div class="site-card-nav"><strong>ÉDITION 10</strong><span>Homme&nbsp;&nbsp; Nouveau</span></div><img src="assets/editorial-court-men.jpg" alt="" width="1536" height="1024" /><div class="site-card-copy"><small>Élégance sportive</small><strong>Le nouveau vestiaire</strong><span>Collection homme</span></div></article>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="hero-stats">
-        <div><strong>Une recherche</strong><span>Exprime exactement ton envie</span></div>
-        <div><strong>Toutes les sources</strong><span>Sites officiels, multimarques et plateformes de seconde main</span></div>
-        <div><strong>La pièce juste</strong><span>Prix, taille et disponibilité pris en compte</span></div>
-      </div>
     </section>
 
     <!-- ================= 3. COMMENT ÇA MARCHE ================= -->
     <section class="how reveal" id="how">
       <div class="section-head">
         <p class="eyebrow">Comment ça marche</p>
-        <h2>Trois façons de trouver la bonne pièce</h2>
+        <h2>Trois façons de<br />trouver la bonne pièce</h2>
         <p class="section-sub">Pars de ce que tu sais. Findly s’occupe de trouver le reste.</p>
       </div>
       <div class="steps">
@@ -178,25 +214,34 @@
       </div>
     </section>
 
-    <!-- ================= 6. DECISION DETAILS ================= -->
-    <section class="features reveal">
-      <div class="section-head">
-        <p class="eyebrow">Avant de choisir</p>
-        <h2>Les détails qui changent tout</h2>
-      </div>
-      <div class="feature-grid">
-        <article><span class="feature-num">01</span><h3>Le vrai prix</h3><p>Prix comparés et historique vérifié pour distinguer la bonne affaire de la fausse promotion.</p></article>
-        <article><span class="feature-num">02</span><h3>Disponible dans ta taille</h3><p>Findly écarte les pièces déjà épuisées. Fini la rupture de stock découverte après trois clics.</p></article>
-        <article><span class="feature-num">03</span><h3>Totalement gratuit</h3><p>Findly agit simplement comme une plateforme intermédiaire et ne prélève aucune commission auprès du client.</p></article>
-      </div>
-    </section>
-
     <!-- ================= 7. LA TECHNOLOGIE FINDLY ================= -->
     <section class="tech reveal" id="tech">
       <div class="section-head">
-        <p class="eyebrow">La technologie Findly</p>
-        <h2>Plusieurs recherches.<br />Une seule sélection.</h2>
-        <p class="section-sub">Filtres, image ou description : Findly reconnaît les mêmes pièces d’un site à l’autre, élimine les doublons et classe les résultats selon tes critères.</p>
+        <p class="eyebrow">Les détails qui changent tout</p>
+        <h2>Le bon choix, pas seulement le prix le plus bas.</h2>
+        <p class="section-sub">Findly reconnaît les mêmes pièces d’un site à l’autre, élimine les doublons et compare ce qui compte vraiment avant de classer les résultats.</p>
+      </div>
+      <div class="ranking-panel">
+        <p class="ranking-intro">Le prix affiché n’est qu’un début. Findly regarde l’offre dans son ensemble pour trouver la meilleure offre et éviter les fausses bonnes affaires.</p>
+        <ol class="ranking-list">
+          <li><span>01</span><div><strong>Disponible dans ta taille</strong><p>La bonne taille et la bonne couleur sont vérifiées. Findly écarte les pièces déjà épuisées.</p></div></li>
+          <li><span>02</span><div><strong>Le vrai prix total</strong><p>Prix comparés, historique vérifié, livraison et frais éventuels permettent de distinguer la bonne affaire de la fausse promotion.</p></div></li>
+          <li><span>03</span><div><strong>Confiance</strong><p>Type de vendeur, retours, délai et état de la pièce en seconde main sont pris en compte.</p></div></li>
+          <li><span>04</span><div><strong>Tes critères</strong><p>Budget, matière, neuf ou seconde main : la sélection reste fidèle à ta recherche.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="alerts reveal" aria-labelledby="alerts-title">
+      <div class="alerts-copy">
+        <p class="eyebrow">Bientôt avec Findly</p>
+        <h2 id="alerts-title">La bonne pièce.<br /><em>Au bon moment.</em></h2>
+        <p>Une pièce repérée n’est pas toujours disponible dans les bonnes conditions. Findly pourra continuer à chercher pour toi.</p>
+      </div>
+      <div class="alert-list" aria-label="Alertes prévues">
+        <article><span>01</span><div><h3>Retour dans ta taille</h3><p>Sois prévenu(e) dès que la pièce redevient disponible.</p></div></article>
+        <article><span>02</span><div><h3>Baisse de prix</h3><p>Reçois une alerte lorsqu’elle entre enfin dans ton budget.</p></div></article>
+        <article><span>03</span><div><h3>Disponible en seconde main</h3><p>Découvre-la dès qu’une offre vérifiée apparaît.</p></div></article>
       </div>
     </section>
 
@@ -232,6 +277,10 @@
           <p>Des pièces neuves ou de seconde main, issues de boutiques, de revendeurs et de plateformes sélectionnées par Findly.</p>
         </details>
         <details>
+          <summary>Findly est-il totalement gratuit ?</summary>
+          <p>Oui. Tu recherches, compares et accèdes aux offres sans abonnement ni frais supplémentaires.</p>
+        </details>
+        <details>
           <summary>Que signifie rejoindre le Club ?</summary>
           <p>Tu seras informé(e) du lancement et recevras une invitation pour découvrir Findly en avant-première.</p>
         </details>
@@ -245,7 +294,7 @@
     <!-- ================= 11. RÉASSURANCE ================= -->
     <section class="trust reveal" aria-label="Les engagements Findly">
       <div class="trust-line">
-        <span>Accès gratuit</span>
+        <span>Totalement gratuit</span>
         <span>Neuf &amp; seconde main</span>
         <span>Sélection indépendante</span>
         <span>Données protégées</span>
@@ -257,7 +306,7 @@
   <footer>
     <div class="footer-inner">
       <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/><line x1="15.3" y1="15.3" x2="20.5" y2="20.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>findly</span>
-      <p>La pièce que tu cherches. Rien d’autre.</p>
+      <p>La bonne pièce. La meilleure offre.</p>
       <p class="copyright">© 2026 Findly — Tous droits réservés.</p>
     </div>
   </footer>
@@ -283,6 +332,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="supabase-client.js"></script>
-  <script src="script.js?v=20260722-2"></script>
+  <script src="script.js?v=20260727-5"></script>
 </body>
 </html>
