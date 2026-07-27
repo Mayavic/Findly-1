@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260727-5" />
+  <link rel="stylesheet" href="style.css?v=20260727-6" />
 </head>
 <body>
   <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -43,48 +43,13 @@
         Taille, couleur, disponibilité, prix, livraison : Findly prend tout en compte, pour que tu n’aies plus à le faire.
       </p>
 
-      <section class="product-demo is-complete" aria-labelledby="demo-title">
-        <div class="product-demo-head">
-          <div>
-            <p class="eyebrow">Simulation de l’expérience</p>
-            <h2 id="demo-title">Une recherche, une réponse claire.</h2>
-          </div>
-        </div>
-
-        <div class="demo-tabs" role="tablist" aria-label="Modes de recherche">
-          <button type="button" class="is-active" role="tab" aria-selected="true" data-demo-scenario="search">Décrire la pièce</button>
-          <button type="button" role="tab" aria-selected="false" data-demo-scenario="photo">Ajouter une photo</button>
-          <button type="button" role="tab" aria-selected="false" data-demo-scenario="occasion">Me conseiller</button>
-        </div>
-
-        <form class="demo-search" id="demo-search">
-          <label class="sr-only" for="demo-query">Exemple de recherche</label>
-          <input id="demo-query" type="text" value="Short Nike AeroSwift rose, taille S" autocomplete="off" />
-          <button type="submit" id="demo-submit">Trouver la pièce <span aria-hidden="true">→</span></button>
-        </form>
-
-        <div class="demo-result" id="demo-result" aria-live="polite">
-          <div class="demo-product-image">
-            <img id="demo-product-image" src="assets/nike-aeroswift-pink-example.jpg" alt="Short de running Nike AeroSwift rose porté, présenté dans le résultat d’exemple" width="1254" height="1254" />
-          </div>
-          <div class="demo-product-info">
-            <small id="demo-product-label">Meilleur prix trouvé</small>
-            <h3 id="demo-product-title">Nike AeroSwift</h3>
-            <p id="demo-product-description">Short de running femme · Hyper Pink</p>
-            <div class="demo-price"><strong id="demo-product-price">79,99 €</strong></div>
-            <a id="demo-product-link" href="https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645" class="demo-offer-link" target="_blank" rel="noopener noreferrer"><span id="demo-product-link-label">Voir l’offre</span><span aria-hidden="true">↗</span></a>
-            <p class="demo-note" id="demo-product-note">Visuel produit utilisé à titre d’exemple. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.</p>
-          </div>
-        </div>
-      </section>
-
       <section class="cta reveal" id="contact">
         <div class="cta-heading">
           <p>Accès anticipé</p>
-          <h2>Rejoins le Club<br /><em>Findly.</em></h2>
+          <h2>Rejoins le<br />Club <em>Findly.</em></h2>
         </div>
         <div class="cta-action">
-          <p>Accède avant tout le monde à toute la mode,<br />en une seule recherche.</p>
+          <p>Accède avant tout le monde à toute la mode, en une seule recherche.</p>
           <button class="waitlist-btn large" data-waitlist>S’inscrire en avant-première <span aria-hidden="true">→</span></button>
           <small>Gratuit · Désinscription en un clic</small>
         </div>
@@ -186,6 +151,24 @@
         </div>
       </section>
 
+      <!-- ================= LES DÉTAILS QUI CHANGENT TOUT ================= -->
+      <section class="tech reveal" id="tech">
+        <div class="section-head">
+          <p class="eyebrow">Les détails qui changent tout</p>
+          <h2>Le bon choix, pas seulement le prix le plus bas.</h2>
+          <p class="section-sub">Findly reconnaît les mêmes pièces d’un site à l’autre, élimine les doublons et compare ce qui compte vraiment avant de classer les résultats.</p>
+        </div>
+        <div class="ranking-panel">
+          <p class="ranking-intro">Le prix affiché n’est qu’un début. Findly regarde l’offre dans son ensemble pour trouver la meilleure offre et éviter les fausses bonnes affaires.</p>
+          <ol class="ranking-list">
+            <li><span>01</span><div><strong>Disponible dans ta taille</strong><p>La bonne taille et la bonne couleur sont vérifiées. Findly écarte les pièces déjà épuisées.</p></div></li>
+            <li><span>02</span><div><strong>Le vrai prix total</strong><p>Prix comparés, historique vérifié, livraison et frais éventuels permettent de distinguer la bonne affaire de la fausse promotion.</p></div></li>
+            <li><span>03</span><div><strong>Confiance</strong><p>Type de vendeur, retours, délai et état de la pièce en seconde main sont pris en compte.</p></div></li>
+            <li><span>04</span><div><strong>Tes critères</strong><p>Budget, matière, neuf ou seconde main : la sélection reste fidèle à ta recherche.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
     </section>
 
     <!-- ================= 3. COMMENT ÇA MARCHE ================= -->
@@ -208,28 +191,62 @@
         </article>
         <article>
           <span class="step-num">03</span>
-          <h3>Tu l’as en tête</h3>
-          <p>Décris une pièce aperçue ou imaginée, même sans connaître sa marque. Findly sélectionne les modèles qui correspondent vraiment à ton envie.</p>
+          <h3>Tu as une idée en tête</h3>
+          <p>Décris ce que tu recherches, même si tu n’as pas de pièce précise en tête. Findly s’occupe de te faire des suggestions.</p>
         </article>
       </div>
-    </section>
 
-    <!-- ================= 7. LA TECHNOLOGIE FINDLY ================= -->
-    <section class="tech reveal" id="tech">
-      <div class="section-head">
-        <p class="eyebrow">Les détails qui changent tout</p>
-        <h2>Le bon choix, pas seulement le prix le plus bas.</h2>
-        <p class="section-sub">Findly reconnaît les mêmes pièces d’un site à l’autre, élimine les doublons et compare ce qui compte vraiment avant de classer les résultats.</p>
-      </div>
-      <div class="ranking-panel">
-        <p class="ranking-intro">Le prix affiché n’est qu’un début. Findly regarde l’offre dans son ensemble pour trouver la meilleure offre et éviter les fausses bonnes affaires.</p>
-        <ol class="ranking-list">
-          <li><span>01</span><div><strong>Disponible dans ta taille</strong><p>La bonne taille et la bonne couleur sont vérifiées. Findly écarte les pièces déjà épuisées.</p></div></li>
-          <li><span>02</span><div><strong>Le vrai prix total</strong><p>Prix comparés, historique vérifié, livraison et frais éventuels permettent de distinguer la bonne affaire de la fausse promotion.</p></div></li>
-          <li><span>03</span><div><strong>Confiance</strong><p>Type de vendeur, retours, délai et état de la pièce en seconde main sont pris en compte.</p></div></li>
-          <li><span>04</span><div><strong>Tes critères</strong><p>Budget, matière, neuf ou seconde main : la sélection reste fidèle à ta recherche.</p></div></li>
-        </ol>
-      </div>
+      <section class="product-demo is-complete" aria-labelledby="demo-title">
+        <div class="product-demo-head">
+          <div>
+            <p class="eyebrow">Simulation de l’expérience</p>
+            <h2 id="demo-title">Une recherche, une réponse claire.</h2>
+          </div>
+        </div>
+
+        <div class="demo-tabs" role="tablist" aria-label="Modes de recherche">
+          <button type="button" class="is-active" role="tab" aria-selected="true" data-demo-scenario="search">Décrire la pièce</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="photo">Ajouter une photo</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="occasion">Me conseiller</button>
+        </div>
+
+        <form class="demo-search" id="demo-search">
+          <label class="sr-only" for="demo-query">Exemple de recherche</label>
+          <input id="demo-query" type="text" value="Short Nike AeroSwift rose, taille S" autocomplete="off" />
+          <button type="submit" id="demo-submit">Trouver la pièce <span aria-hidden="true">→</span></button>
+        </form>
+
+        <div class="demo-results">
+          <div class="demo-result demo-result-primary" id="demo-result" aria-live="polite">
+            <div class="demo-product-image">
+              <span class="demo-badge">Recommandé pour vous</span>
+              <img id="demo-product-image" src="assets/nike-aeroswift-pink-example.jpg" alt="Short de running Nike AeroSwift rose, disponible sur Nike" width="1254" height="1254" />
+            </div>
+            <div class="demo-product-info">
+              <small id="demo-product-label">Meilleure offre disponible</small>
+              <h3 id="demo-product-title">Nike AeroSwift</h3>
+              <p id="demo-product-description">Short de running femme · Hyper Pink</p>
+              <div class="demo-price"><strong id="demo-product-price">79,99 €</strong></div>
+              <a id="demo-product-link" href="https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645" class="demo-offer-link" target="_blank" rel="noopener noreferrer"><span id="demo-product-link-label">Voir l’offre Nike</span><span aria-hidden="true">↗</span></a>
+              <p class="demo-note" id="demo-product-note">Visuel produit utilisé à titre d’exemple. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.</p>
+            </div>
+          </div>
+
+          <div class="demo-result demo-result-secondary">
+            <div class="demo-product-image">
+              <img src="assets/nike-aeroswift-pink-example.jpg" alt="Short de running Nike AeroSwift rose, également disponible sur ASOS" width="1254" height="1254" />
+            </div>
+            <div class="demo-product-info">
+              <small>Indisponible chez ASOS</small>
+              <h3>Nike AeroSwift</h3>
+              <p>Short de running femme · Rose</p>
+              <div class="demo-price"><strong>29,99 €</strong></div>
+              <p class="demo-offer-unavailable" role="status">Épuisé chez ASOS</p>
+              <p class="demo-note">Prix constaté : 29,99 €. Cette offre n’est plus disponible.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
 
     <section class="alerts reveal" aria-labelledby="alerts-title">
