@@ -125,20 +125,8 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("in-view"));
 }
 
-/* ============ FLUX DES BOUTIQUES ============ */
-const fashionStream = document.querySelector(".fashion-stream");
+/* ============ PRÉFÉRENCES ============ */
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-if (fashionStream && !reduceMotion.matches) {
-  if ("IntersectionObserver" in window) {
-    const streamObserver = new IntersectionObserver(([entry]) => {
-      fashionStream.classList.toggle("is-active", entry.isIntersecting);
-    }, { threshold: 0.01 });
-    streamObserver.observe(fashionStream);
-  } else {
-    fashionStream.classList.add("is-active");
-  }
-}
 
 /* ============ DÉMONSTRATION PRODUIT ============ */
 const productDemo = document.querySelector(".product-demo");
@@ -164,39 +152,94 @@ const demoScenarios = {
     alt: "Short de running Nike AeroSwift rose porté, présenté dans le résultat d’exemple",
     label: "Meilleure offre disponible",
     title: "Nike AeroSwift",
-    description: "Short de running femme · Hyper Pink",
+    description: "Short de running femme · Hyper Pink/Noir",
     price: "79,99 €",
     link: "https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645",
     linkLabel: "Voir l’offre Nike",
-    note: "Visuel produit utilisé à titre d’exemple. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.",
-    submitLabel: "Trouver la pièce"
+    note: "Visuel produit utilisé à titre d’exemple.\nNom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.",
+    submitLabel: "Trouver la pièce",
+    others: [{
+      image: "assets/nike-aeroswift-pink-example.jpg",
+      alt: "Short de running Nike AeroSwift rose, également disponible sur ASOS",
+      label: "Indisponible chez ASOS",
+      title: "Nike AeroSwift",
+      description: "Short de running femme · Hyper Pink/Noir",
+      price: "29,99 €",
+      status: "Épuisé chez ASOS",
+      note: "Prix constaté : 29,99 €. Cette offre n’est plus disponible."
+    }]
   },
   photo: {
-    query: "Photo ajoutée — short de running rose",
-    image: "assets/nike-aeroswift-pink-example.jpg",
-    alt: "Short de running rose retrouvé à partir d’une photo",
-    label: "Pièce retrouvée",
-    title: "Nike AeroSwift",
-    description: "Modèle identifié · Hyper Pink",
-    price: "79,99 €",
-    link: "https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645",
-    linkLabel: "Voir l’offre",
-    note: "Simulation d’une recherche visuelle. Nom, prix et lien issus de la page officielle Nike consultée le 27 juillet 2026.",
-    submitLabel: "Retrouver la pièce"
+    query: "Photo ajoutée — veste Carhartt WIP noire, taille M",
+    image: "assets/carhartt-detroit-black-example.jpg",
+    alt: "Veste Carhartt WIP Detroit noire retrouvée à partir d’une photo",
+    label: "Meilleure offre disponible",
+    title: "Carhartt WIP Detroit Jacket",
+    description: "Black / Black, Rinsed · Taille M en stock",
+    price: "179 €",
+    link: "https://www.carhartt-wip.com/fr-fr/p/detroit-jacket-black-black-rinsed-1743",
+    linkLabel: "Voir l’offre Carhartt WIP",
+    note: "Simulation d’une recherche visuelle.\nPrix et stock en taille M relevés sur les sites marchands le 23 septembre 2026.",
+    submitLabel: "Retrouver la pièce",
+    packshot: true,
+    others: [
+      {
+        label: "Outback Sylt · M en stock",
+        title: "Detroit Jacket",
+        description: "Black (Rinsed)",
+        price: "179 €",
+        link: "https://www.outbacksylt.com/en/carhartt-wip-detroit-jacket-black-rinsed-73046",
+        linkLabel: "Voir sur Outback Sylt"
+      },
+      {
+        label: "D2 Store · Dernière pièce en M",
+        title: "Detroit Jacket (Summer)",
+        description: "Black",
+        price: "180 €",
+        link: "https://www.d2-store.com/en/product/carhartt-wip-detroit-jacket-summer-man-black-i033112-00e-02",
+        linkLabel: "Voir sur D2 Store"
+      },
+      {
+        label: "Indisponible en M chez SVD",
+        title: "Detroit Jacket (Summer)",
+        description: "Black",
+        price: "225 €",
+        status: "Épuisé en M chez SVD"
+      }
+    ]
   },
   occasion: {
-    query: "Robe élégante pour un mariage en Sicile · 250 € max",
-    image: "assets/editorial-sicily-wedding-dress.jpg",
-    alt: "Robe longue d’été colorée recommandée pour un mariage en Sicile",
+    query: "Mocassins femme plissés style Saint Laurent, taille 38, moins de 200 €",
+    image: "assets/massimo-dutti-mocassin-fronce-example.jpg",
+    alt: "Mocassin en cuir froncé marron Massimo Dutti",
     label: "Choix du personal shopper",
-    title: "Robe longue Méditerranée",
-    description: "Imprimé coloré · Fluide et élégante",
-    price: "229 €",
-    link: "#contact",
-    linkLabel: "Voir la recommandation",
-    note: "Visuel original et recommandation fictive présentés pour illustrer le futur mode personal shopper de Findly.",
-    submitLabel: "Trouver ma tenue",
-    hasSecondary: false
+    title: "Mocassin en cuir froncé",
+    description: "Massimo Dutti · Marron · 38 disponible",
+    price: "100 €",
+    link: "https://www.massimodutti.com/fr/mocassin-en-cuir-fronce-l11573850?cS=700",
+    linkLabel: "Voir chez Massimo Dutti",
+    note: "Simulation du mode personal shopper.\nPrix et disponibilité en 38 relevés sur les sites marchands le 23 septembre 2026.",
+    submitLabel: "Trouver mes mocassins",
+    others: [
+      {
+        image: "assets/alohas-aven-rift-burgundy-example.jpg",
+        label: "Alohas · 38 disponible",
+        title: "Aven Rift",
+        description: "Cuir bordeaux",
+        price: "160 €",
+        link: "https://alohas.com/products/aven-rift-burgundy-leather-loafers?variant=51001372770640",
+        linkLabel: "Voir l’offre"
+      },
+      {
+        image: "assets/arket-mocassins-laques-example.jpg",
+        label: "Arket · 38 disponible",
+        title: "Mocassins en cuir laqué",
+        description: "Noir",
+        price: "189 €",
+        link: "https://www.arket.com/fr-fr/product/lacquered-leather-loafers-black-1317806001/",
+        linkLabel: "Voir l’offre"
+      }
+    ]
   }
 };
 
@@ -215,7 +258,11 @@ function setDemoScenario(name) {
   if (demoProductLinkLabel) demoProductLinkLabel.textContent = scenario.linkLabel;
   if (demoProductNote) demoProductNote.textContent = scenario.note;
   if (demoSubmit) demoSubmit.innerHTML = `${scenario.submitLabel} <span aria-hidden="true">→</span>`;
-  if (demoResults) demoResults.classList.toggle("single-result", scenario.hasSecondary === false);
+  if (demoResults) {
+    demoResults.classList.toggle("single-result", scenario.hasSecondary === false);
+    demoResults.classList.toggle("is-packshot", scenario.packshot === true);
+  }
+  renderDemoOthers(scenario.others);
   if (demoProductLink) {
     demoProductLink.href = scenario.link;
     if (scenario.link.startsWith("http")) {
@@ -226,6 +273,60 @@ function setDemoScenario(name) {
       demoProductLink.removeAttribute("rel");
     }
   }
+}
+
+/* Autres offres : épuisées ou sur d’autres sites marchands */
+const demoOthers = document.getElementById("demo-others");
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text) node.textContent = text;
+  return node;
+}
+
+/* Plusieurs offres avec photo : vignette à gauche pour rester compact */
+function scenarioHasThumbs(offers) {
+  return offers.length > 1;
+}
+
+function renderDemoOthers(offers) {
+  if (!demoOthers || !offers) return;
+  demoOthers.replaceChildren(...offers.map((offer) => {
+    const card = el("div", "demo-result demo-result-secondary");
+    card.classList.toggle("is-unavailable", Boolean(offer.status));
+    card.classList.toggle("demo-result-compact", !offer.image || scenarioHasThumbs(offers));
+    card.classList.toggle("demo-result-thumb", Boolean(offer.image) && scenarioHasThumbs(offers));
+    if (offer.image) {
+      const media = el("div", "demo-product-image");
+      const img = el("img");
+      img.src = offer.image;
+      img.alt = offer.alt || "";
+      media.append(img);
+      card.append(media);
+    }
+    const info = el("div", "demo-product-info");
+    const price = el("div", "demo-price");
+    price.append(el("strong", "", offer.price));
+    info.append(el("small", "", offer.label), el("h3", "", offer.title), el("p", "", offer.description), price);
+    if (offer.status) {
+      const status = el("p", "demo-offer-unavailable", offer.status);
+      status.setAttribute("role", "status");
+      info.append(status);
+    } else if (offer.link) {
+      const link = el("a", "demo-offer-link demo-offer-link-light");
+      link.href = offer.link;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      const arrow = el("span", "", "↗");
+      arrow.setAttribute("aria-hidden", "true");
+      link.append(el("span", "", offer.linkLabel), arrow);
+      info.append(link);
+    }
+    if (offer.note) info.append(el("p", "demo-note", offer.note));
+    card.append(info);
+    return card;
+  }));
 }
 
 demoTabs.forEach((tab) => {
