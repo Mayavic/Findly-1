@@ -56,6 +56,33 @@ body {
 }
 .logo-mark { flex-shrink: 0; }
 .logo-arc { width: 2.5em; height: auto; margin-right: .4em; color: var(--text); }
+/* Logo animé : le nom se tape à l'arrivée, puis le curseur clignote */
+.findly-logo {
+  --findly-couleur: var(--text);
+  --findly-taille: 1.3rem;
+  display: inline-flex; align-items: center;
+  font-family: "Jost", var(--sans); font-weight: 500;
+  font-size: var(--findly-taille); letter-spacing: .42em; line-height: 1;
+  color: var(--findly-couleur); text-decoration: none;
+  width: 5.70em; /* largeur finale réservée : le menu ne bouge pas pendant la frappe */
+}
+.findly-logo__mot { display: inline-flex; white-space: nowrap; }
+/* Chaque lettre apparaît entière, l'une après l'autre ; le curseur suit */
+.findly-logo__mot > span {
+  display: inline-block; overflow: hidden;
+  animation: findly-lettre 1ms linear both;
+  animation-delay: calc(.3s + var(--i) * .22s);
+}
+.findly-logo__curseur {
+  display: inline-block; width: .05em; height: 1.1em; margin-left: -.24em;
+  background: var(--findly-couleur);
+  animation: findly-clignote 1.1s steps(1) infinite;
+}
+@keyframes findly-lettre { from { max-width: 0; } to { max-width: 2em; } }
+@keyframes findly-clignote { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .findly-logo__mot > span, .findly-logo__curseur { animation: none; }
+}
 .footer-inner .logo { justify-content: center; }
 nav { display: flex; justify-content: center; gap: 34px; }
 nav a {

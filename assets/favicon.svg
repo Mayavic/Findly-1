@@ -1,32 +1,7 @@
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      .letter {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 500;
-        font-size: 92px;
-        fill: #111111;
-      }
-    </style>
-  </defs>
-
-  <!-- outer gray rounded background -->
-  <rect x="16" y="16" width="480" height="480" rx="90" fill="#e5e5e5"/>
-
-  <!-- inner white rounded square -->
-  <rect x="70" y="70" width="372" height="372" rx="64" fill="#ffffff"/>
-
-  <!-- row 1: F I N, columns aligned -->
-  <text y="234" class="letter">
-    <tspan x="176" text-anchor="middle">F</tspan>
-    <tspan x="256" text-anchor="middle">I</tspan>
-    <tspan x="336" text-anchor="middle">N</tspan>
-  </text>
-
-  <!-- row 2: D L Y, same columns -->
-  <text y="330" class="letter">
-    <tspan x="176" text-anchor="middle">D</tspan>
-    <tspan x="256" text-anchor="middle">L</tspan>
-    <tspan x="336" text-anchor="middle">Y</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="230" fill="#151515"/>
+  <g fill="#F5F2EC">
+    <path d="M385 362h164v47H434v74h111v43H434v136h-49z"/>
+    <rect x="653" y="276" width="25" height="472"/>
+  </g>
 </svg>
