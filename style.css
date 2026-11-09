@@ -1,5 +1,5 @@
 :root {
-  --bg: #ffffff;
+  --bg: #F0EEE9; /* Pantone 11-4201 Cloud Dancer */
   --bg-soft: #f5f4f2;
   --text: #0a0a0a;
   --muted: #6f6f6f;
@@ -40,7 +40,7 @@ body {
   width: 100%;
   padding: 22px clamp(20px, 5vw, 60px);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(240, 238, 233, 0.86);
   backdrop-filter: blur(14px);
   display: grid;
   grid-template-columns: auto 1fr auto;
