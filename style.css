@@ -2,7 +2,7 @@
   --bg: #FCFCFA; /* blanc cassé très clair */
   --bg-soft: #f5f4f2;
   --text: #0a0a0a;
-  --chocolat: #35231D; /* chocolat foncé : encadrés et bouton du Club */
+  --chocolat: #4A12C4; /* violet électrique foncé : encadrés et bouton du Club */
   --ink: #222325; /* gris anthracite très foncé pour les textes */
   --muted: #6f6f6f;
   --line: rgba(10, 10, 10, 0.14);
@@ -42,7 +42,7 @@ body {
   width: 100%;
   padding: 22px clamp(20px, 5vw, 60px);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(205, 220, 238, 0.96); /* powder blue #CDDCEE */
+  background: rgba(223, 248, 92, 0.97); /* jaune acide lime #DFF85C */
   backdrop-filter: blur(14px);
   display: grid;
   grid-template-columns: auto 1fr auto;
