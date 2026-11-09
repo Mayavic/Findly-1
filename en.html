@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Findly — The search engine for all of fashion</title>
-  <meta name="description" content="Findly searches stores, retailers and pre-owned platforms to find the right piece, available in your size, from the best source." />
+  <meta name="description" content="In seconds, Findly compares online stores and resellers (new and pre-owned) to find the best offer for your size, colour, availability, price and delivery." />
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
   <link rel="icon" href="assets/favicon.ico?v=2" sizes="any" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2" />
@@ -29,7 +29,7 @@
     <div class="header-actions">
       <a href="index.html" class="lang-switch" aria-label="Passer en français">FR</a>
       <a href="login.html" class="login-link" hidden>Log in</a>
-      <button class="waitlist-btn" data-waitlist>Join the waitlist</button>
+      <button class="waitlist-btn" data-waitlist>Join the Club</button>
     </div>
   </header>
 
@@ -37,143 +37,206 @@
     <!-- ================= 1. HERO ================= -->
     <section class="hero reveal" id="concept">
       <h1>
-        Describe the perfect outfit.<br />
-        <span>Our AI agents find it everywhere.</span>
+        One search.<br />
+        <span>All of fashion.</span>
       </h1>
       <p class="hero-text">
-        You describe what you want, and a squad of <strong>AI agents</strong> goes out to explore dozens
-        of stores in real time. They <strong>sort, compare and curate</strong> the clothes that truly match —
-        price, style, sizes and reviews all aligned. Zero tabs to open.
+        Finding the right piece (new or pre-owned) shouldn’t take hours. Findly searches every online store
+        and reseller to select, in seconds, the offer that best matches what you want.
+        Size, colour, availability, price, delivery: Findly takes it all into account, so you don’t have to.
       </p>
+
+      <!-- ================= PHOTO STRIP ================= -->
+      <div class="photo-strip" role="group" aria-label="Fashion inspiration">
+        <figure><img src="assets/editorial-fourrure-verte.jpg" alt="Green faux-fur collar over a navy jumper" width="458" height="628" loading="lazy" /></figure>
+        <figure><img src="assets/editorial-maille-tricolore.jpg" alt="Beige knit jumper with a blue sleeve and a burgundy jumper tied at the waist" width="456" height="628" loading="lazy" /></figure>
+      </div>
 
       <section class="cta reveal" id="contact">
         <div class="cta-heading">
-          <p>Early access</p>
-          <h2>Join the Findly<br /><em>Club.</em></h2>
+          <p>Coming soon</p>
+          <h2><span>Join the</span> <span>Findly <em>Club.</em></span></h2>
         </div>
         <div class="cta-action">
-          <p>Access all of fashion before everyone else,<br />with a single search.</p>
-          <button class="waitlist-btn large" data-waitlist>Get early access <span aria-hidden="true">→</span></button>
+          <p>Sign up to be among the first to discover Findly.</p>
+          <button class="waitlist-btn large" data-waitlist>Join the list <span aria-hidden="true">→</span></button>
           <small>Free · Unsubscribe in one click</small>
         </div>
       </section>
 
-      <div class="hero-stats">
-        <div><strong>One search</strong><span>Describe exactly what you want</span></div>
-        <div><strong>Every source</strong><span>Official sites, multi-brand sites and pre-owned platforms</span></div>
-        <div><strong>The right piece</strong><span>Price, size and availability considered</span></div>
-      </div>
-    </section>
-
-    <!-- ================= 2. LOGOS ================= -->
-    <section class="logos reveal">
-      <p>Everywhere fashion can be found online</p>
-      <div class="logo-row">
-        <span>Official sites</span><span>Multi-brand sites</span><span>Pre-owned platforms</span>
-      </div>
     </section>
 
     <!-- ================= 3. HOW IT WORKS ================= -->
     <section class="how reveal" id="how">
       <div class="section-head">
         <p class="eyebrow">How it works</p>
-        <h2>Three ways to find the right piece</h2>
-        <p class="section-sub">Start with what you know. Findly takes care of finding the rest.</p>
+        <h2>3 ways to<br />find the right piece</h2>
+        <p class="section-sub">Start with what you know. Findly takes care of the rest.</p>
       </div>
       <div class="steps reveal-right">
         <article>
           <span class="step-num">01</span>
           <h3>You know what you want</h3>
-          <p>A brand, a model, a size, a colour or a budget: set your criteria and discover the pieces available online.</p>
+          <p>A brand, a model, a size, a colour or a budget: set your criteria and Findly selects the pieces available online.</p>
         </article>
         <article>
           <span class="step-num">02</span>
-          <h3>You have an image</h3>
-          <p>Add a photo or screenshot. Findly finds the piece — or the closest matches — and takes you to the sites where it is available.</p>
+          <h3>You have a photo</h3>
+          <p>Add it and Findly finds THE piece — and possibly a few alternatives — then takes you to the sites that sell it.</p>
         </article>
         <article>
           <span class="step-num">03</span>
-          <h3>You have it in mind</h3>
-          <p>Describe a piece you saw or imagined, even if you do not know the brand. Findly selects the styles that truly match your idea.</p>
+          <h3>You have an idea in mind</h3>
+          <p>Describe what you’re looking for, even without a precise idea. Findly takes care of the suggestions.</p>
         </article>
       </div>
+
+      <section class="product-demo is-complete" aria-labelledby="demo-title">
+        <div class="product-demo-head">
+          <div>
+            <p class="eyebrow">Experience preview</p>
+            <h2 id="demo-title">One search, one clear answer.</h2>
+          </div>
+        </div>
+
+        <div class="demo-tabs" role="tablist" aria-label="Search modes">
+          <button type="button" class="is-active" role="tab" aria-selected="true" data-demo-scenario="search">Describe the piece</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="photo">Add a photo</button>
+          <button type="button" role="tab" aria-selected="false" data-demo-scenario="occasion">Advise me</button>
+        </div>
+
+        <form class="demo-search" id="demo-search">
+          <label class="sr-only" for="demo-query">Example search</label>
+          <input id="demo-query" type="text" value="Pink Nike AeroSwift shorts, size S" autocomplete="off" readonly tabindex="-1" />
+          <button type="submit" id="demo-submit">Find the piece <span aria-hidden="true">→</span></button>
+        </form>
+
+        <div class="demo-results" id="demo-results">
+          <div class="demo-result demo-result-primary" id="demo-result" aria-live="polite">
+            <div class="demo-product-image">
+              <span class="demo-badge">Recommended for you</span>
+              <img id="demo-product-image" src="assets/nike-aeroswift-pink-example.jpg" alt="Pink Nike AeroSwift running shorts, available at Nike" width="1254" height="1254" />
+            </div>
+            <div class="demo-product-info">
+              <small id="demo-product-label">Best available offer</small>
+              <h3 id="demo-product-title">Nike AeroSwift</h3>
+              <p id="demo-product-description">Women’s running shorts · Hyper Pink/Black</p>
+              <div class="demo-price"><strong id="demo-product-price">€79.99</strong></div>
+              <a id="demo-product-link" href="https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645" class="demo-offer-link" target="_blank" rel="noopener noreferrer"><span id="demo-product-link-label">View the Nike offer</span><span aria-hidden="true">↗</span></a>
+              <p class="demo-note" id="demo-product-note">Product image used as an example.<br />Name, price and link taken from the official Nike page, viewed on 27 July 2026.</p>
+            </div>
+          </div>
+
+          <div class="demo-others" id="demo-others">
+            <div class="demo-result demo-result-secondary is-unavailable">
+              <div class="demo-product-image">
+                <img src="assets/nike-aeroswift-pink-example.jpg" alt="Pink Nike AeroSwift running shorts, also listed at ASOS" width="1254" height="1254" />
+              </div>
+              <div class="demo-product-info">
+                <small>Unavailable at ASOS</small>
+                <h3>Nike AeroSwift</h3>
+                <p>Women’s running shorts · Hyper Pink/Black</p>
+                <div class="demo-price"><strong>€29.99</strong></div>
+                <p class="demo-offer-unavailable" role="status">Sold out at ASOS</p>
+                <p class="demo-note">Price seen: €29.99. This offer is no longer available.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
 
-    <!-- ================= 6. DECISION DETAILS ================= -->
-    <section class="features reveal">
-      <div class="section-head">
-        <p class="eyebrow">Before you choose</p>
-        <h2>The details that change everything</h2>
-      </div>
-      <div class="feature-grid">
-        <article><span class="feature-num">01</span><h3>The real price</h3><p>Compared prices and verified price history reveal a genuine deal from a misleading discount.</p></article>
-        <article><span class="feature-num">02</span><h3>Available in your size</h3><p>Findly removes pieces that are already sold out. No more discovering it after three clicks.</p></article>
-        <article><span class="feature-num">03</span><h3>Completely free</h3><p>Search, compare and access every offer without a subscription or additional fees.</p></article>
-      </div>
-    </section>
-
-    <!-- ================= 7. FINDLY TECHNOLOGY ================= -->
+    <!-- ================= WHY USE FINDLY ================= -->
     <section class="tech reveal" id="tech">
       <div class="section-head">
-        <p class="eyebrow">Findly technology</p>
-        <h2>Different searches.<br />One clear selection.</h2>
-        <p class="section-sub">Filters, image or description: Findly recognises the same pieces across sites, removes duplicates and ranks the results according to your criteria.</p>
+        <p class="eyebrow">Why use Findly?</p>
+        <h2>Because searching shouldn’t take hours anymore.</h2>
+        <p class="section-sub">Findly brings together in one place what you used to look for everywhere:<br />one piece, all its offers, already ranked.</p>
+      </div>
+      <div class="ranking-panel">
+        <p class="ranking-intro">The right offer is the one that ticks all your boxes. Findly finds it for you, across carefully selected sites.</p>
+        <ol class="ranking-list">
+          <li><span>01</span><div><strong>The right item</strong><p>The exact piece you’re looking for,<br />same model and same colour.</p></div></li>
+          <li><span>02</span><div><strong>The right size</strong><p>Only offers available in your size<br />are highlighted.</p></div></li>
+          <li><span>03</span><div><strong>Pre-owned options</strong><p>If you wish, pre-owned items<br />are suggested too.</p></div></li>
+          <li><span>04</span><div><strong>Delivery options</strong><p>Fees, delivery times and return conditions are compared so you can pick the best option.</p></div></li>
+          <li><span>05</span><div><strong>The best price</strong><p>Item, delivery and promo codes included: offers are ranked from best to least good value.</p></div></li>
+        </ol>
       </div>
     </section>
 
-    <!-- ================= 8. TRUST ================= -->
-    <section class="trust reveal">
-      <div class="trust-grid">
-        <div><div class="ico">🆓</div><h3>100% free</h3><p>Findly is free for you. We earn via affiliation, without inflating prices.</p></div>
-        <div><div class="ico">🔒</div><h3>Zero spam</h3><p>Your email is only used to notify you at launch. No reselling, no wild ads.</p></div>
-        <div><div class="ico">🇪🇺</div><h3>GDPR compliant</h3><p>Data hosted in Europe. Unsubscribe in one click, anytime.</p></div>
-        <div><div class="ico">🎯</div><h3>Unbiased</h3><p>Ranking follows your request, not the brands that pay the most.</p></div>
+    <section class="alerts reveal" aria-labelledby="alerts-title">
+      <div class="alerts-copy">
+        <p class="eyebrow">We’re working on it</p>
+        <h2 id="alerts-title">Your piece is available again? <span>We’ll let you know.</span></h2>
+        <p>A piece you’ve spotted isn’t always available when you want it.<br />The search goes on.</p>
+      </div>
+      <div class="alert-list" aria-label="Planned alerts">
+        <article><span>01</span><div><h3>Back in stock</h3><p>The moment your piece reappears, you won’t miss it.</p></div></article>
+        <article><span>02</span><div><h3>Price drop</h3><p>Get an alert when it finally fits your budget.</p></div></article>
+        <article><span>03</span><div><h3>Available pre-owned</h3><p>Be notified when an offer appears.</p></div></article>
       </div>
     </section>
 
-    <!-- ================= 8bis. OUR STORY ================= -->
+    <!-- ================= OUR STORY ================= -->
     <section class="story reveal" id="story">
       <div class="story-grid">
         <div class="story-photo">
-          <img src="assets/founders-editorial.jpg" alt="Editorial portrait illustrating two friends in contemporary tailoring" width="1003" height="1254" loading="lazy" onerror="this.parentElement.classList.add('story-photo--empty')" />
+          <img src="assets/founders-editorial.jpg" alt="Editorial portrait of two friends in contemporary tailoring" width="1003" height="1254" loading="lazy" onerror="this.parentElement.classList.add('story-photo--empty')" />
           <span class="story-photo-placeholder">📸 Photo coming soon</span>
         </div>
         <div class="story-text">
           <p class="eyebrow">Our story</p>
           <h2>Two friends, one shared obsession</h2>
-          <p>We met in business school, already redesigning the fashion world between two classes. We each went on to build our careers in luxury — packaging, brand image, an obsession with detail at every step.</p>
-          <p>That's when we realized something: even with all that expertise, finding THE right piece of clothing at the right price is still a real headache — even for us. So we decided to fix it, together. Findly is that conviction, launched today, by the two of us.</p>
+          <p>Findly is, above all, our story. We met during our studies, with the same love of beautiful pieces and the same (not always reasonable) cravings… and without knowing it, we were writing the first lines of a great friendship.</p>
+          <p>Since then, we’ve grown up together. We cut our teeth at major luxury houses, shared flats, trips, pets, life moments, fits of laughter… and a few obsessions. One of them never left us: the urge to get our hands on THE piece we had in mind, even if it meant hours of searching, fifteen tabs open and hundreds of links swapped.</p>
+          <p>So, after so many years of sharing our everyday lives, we decided to set off on an entrepreneurial adventure together.</p>
+          <p>That’s how Findly came to life. The tool we always dreamed of having. And that we decided to create for you.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= 10. FAQ ================= -->
+    <!-- ================= FAQ ================= -->
     <section class="faq reveal" id="faq">
       <div class="section-head">
         <p class="eyebrow">FAQ</p>
-        <h2>The questions we get asked</h2>
+        <h2>Your questions, our answers.</h2>
       </div>
       <div class="faq-list">
         <details>
-          <summary>Is Findly really free?</summary>
-          <p>Yes. You never pay. When you buy via a Findly link, the store pays us a commission — without changing your price.</p>
+          <summary>When will Findly be available?</summary>
+          <p>Findly will open its doors gradually. Club members will be the first people invited to discover it.</p>
         </details>
         <details>
-          <summary>Which stores are covered?</summary>
-          <p>Over 50 at launch (major retailers, DTC brands and second-hand like Vinted), and we add more every week.</p>
+          <summary>What does joining the Club mean?</summary>
+          <p>You’ll be told about the launch and receive an invitation to discover Findly before everyone else.</p>
         </details>
         <details>
-          <summary>How do the agents understand my request?</summary>
-          <p>Through semantic search: your sentence is matched against the meaning of products, not exact keywords. Relevant results even when vague.</p>
+          <summary>What will I be able to search for?</summary>
+          <p>New or pre-owned pieces from stores, resellers and platforms selected by Findly.</p>
         </details>
         <details>
-          <summary>Do you sell my data?</summary>
-          <p>No. Your email is only used to notify you at launch. EU hosting, GDPR compliant, one-click unsubscribe.</p>
+          <summary>Are the suggested sites reliable?</summary>
+          <p>Yes. Findly only includes verified sites, so you can shop with complete confidence.</p>
         </details>
         <details>
-          <summary>When does it launch?</summary>
-          <p>The beta opens gradually. Join the waitlist for priority access.</p>
+          <summary>Is Findly completely free?</summary>
+          <p>Yes. You search, compare and access offers at no extra cost.</p>
         </details>
+        <details>
+          <summary>How is my data used?</summary>
+          <p>Your email address is only used to tell you about the launch. It will never be sold or shared for advertising purposes.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= TRUST ================= -->
+    <section class="trust reveal" aria-label="Findly’s commitments">
+      <div class="trust-line">
+        <span>Completely free</span>
+        <span>New &amp; pre-owned</span>
+        <span>Independent selection</span>
+        <span>Protected data</span>
       </div>
     </section>
 
@@ -193,21 +256,21 @@
       <button class="modal-close" id="modal-close" aria-label="Close">×</button>
       <div class="modal-content" id="modal-content">
         <p class="tag">🚀 priority access</p>
-        <h2 id="modal-title">Join the waitlist</h2>
-        <p class="modal-sub">Leave your email, we'll ping you the moment we open. Zero spam, promise.</p>
+        <h2 id="modal-title">Join the Club</h2>
+        <p class="modal-sub">Leave your email and we’ll let you know as soon as we open. Zero spam, promise.</p>
         <form id="waitlist-form" novalidate>
           <input type="text" id="waitlist-name" placeholder="Your first name" autocomplete="given-name" required />
           <input type="email" id="waitlist-email" placeholder="you@email.com" autocomplete="email" required />
           <button type="submit">Join →</button>
         </form>
         <p class="modal-error" id="modal-error" hidden>Enter a valid email address 🙃</p>
-        <p class="modal-legal">By signing up, you agree to receive one launch email. Unsubscribe in 1 click.</p>
+        <p class="modal-legal">By signing up, you agree to receive a launch email. Unsubscribe in 1 click.</p>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="supabase-client.js"></script>
-  <script src="script.js" data-lang="en"></script>
+  <script src="script.js?v=20261109-4"></script>
 </body>
 </html>

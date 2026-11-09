@@ -2,10 +2,12 @@
 const LANG = (document.documentElement.lang || "fr").toLowerCase().startsWith("en") ? "en" : "fr";
 const T = {
   fr: {
+    analysing: "Analyse en cours…",
     successTitle: "Tu es sur la liste !",
     successBody: (email) => `Merci 🙌 On t'écrit à <strong>${email}</strong> dès l'ouverture de la bêta. Surveille ta boîte mail (et les spams, au cas où).`
   },
   en: {
+    analysing: "Searching…",
     successTitle: "You're on the list!",
     successBody: (email) => `Thanks 🙌 We'll email <strong>${email}</strong> the moment the beta opens. Keep an eye on your inbox (and spam, just in case).`
   }
@@ -161,7 +163,7 @@ const demoProductLinkLabel = document.getElementById("demo-product-link-label");
 const demoProductNote = document.getElementById("demo-product-note");
 const demoResults = document.getElementById("demo-results");
 
-const demoScenarios = {
+const demoScenariosFr = {
   search: {
     query: "Short Nike AeroSwift rose, taille S",
     image: "assets/nike-aeroswift-pink-example.jpg",
@@ -258,6 +260,106 @@ const demoScenarios = {
     ]
   }
 };
+
+const demoScenariosEn = {
+  search: {
+    query: "Pink Nike AeroSwift shorts, size S",
+    image: "assets/nike-aeroswift-pink-example.jpg",
+    alt: "Pink Nike AeroSwift running shorts, shown in the example result",
+    label: "Best available offer",
+    title: "Nike AeroSwift",
+    description: "Women’s running shorts · Hyper Pink/Black",
+    price: "€79.99",
+    link: "https://www.nike.com/fr/t/short-de-running-taille-mi-haute-avec-sous-short-integre-dri-fit-adv-nike-aeroswift-8-cm-pour-femme-KxIbI2LN/FN2328-645",
+    linkLabel: "View the Nike offer",
+    note: "Product image used as an example.\nName, price and link taken from the official Nike page, viewed on 27 July 2026.",
+    submitLabel: "Find the piece",
+    others: [{
+      image: "assets/nike-aeroswift-pink-example.jpg",
+      alt: "Pink Nike AeroSwift running shorts, also listed at ASOS",
+      label: "Unavailable at ASOS",
+      title: "Nike AeroSwift",
+      description: "Women’s running shorts · Hyper Pink/Black",
+      price: "€29.99",
+      status: "Sold out at ASOS",
+      note: "Price seen: €29.99. This offer is no longer available."
+    }]
+  },
+  photo: {
+    query: "Photo added — black Carhartt WIP jacket, size M",
+    image: "assets/carhartt-detroit-black-example.jpg",
+    alt: "Black Carhartt WIP Detroit jacket found from a photo",
+    label: "Best available offer",
+    title: "Carhartt WIP Detroit Jacket",
+    description: "Black / Black, Rinsed · Size M in stock",
+    price: "€179",
+    link: "https://www.carhartt-wip.com/fr-fr/p/detroit-jacket-black-black-rinsed-1743",
+    linkLabel: "View the Carhartt WIP offer",
+    note: "Visual search preview.\nPrices and size M stock checked on retailer sites on 23 September 2026.",
+    submitLabel: "Find the piece",
+    packshot: true,
+    others: [
+      {
+        label: "Outback Sylt · M in stock",
+        title: "Detroit Jacket",
+        description: "Black (Rinsed)",
+        price: "€179",
+        link: "https://www.outbacksylt.com/en/carhartt-wip-detroit-jacket-black-rinsed-73046",
+        linkLabel: "View at Outback Sylt"
+      },
+      {
+        label: "D2 Store · Last one in M",
+        title: "Detroit Jacket (Summer)",
+        description: "Black",
+        price: "€180",
+        link: "https://www.d2-store.com/en/product/carhartt-wip-detroit-jacket-summer-man-black-i033112-00e-02",
+        linkLabel: "View at D2 Store"
+      },
+      {
+        label: "Unavailable in M at SVD",
+        title: "Detroit Jacket (Summer)",
+        description: "Black",
+        price: "€225",
+        status: "Sold out in M at SVD"
+      }
+    ]
+  },
+  occasion: {
+    query: "Women’s pleated loafers, Saint Laurent style, size 38, under €200",
+    image: "assets/massimo-dutti-mocassin-fronce-example.jpg",
+    alt: "Brown gathered leather loafer by Massimo Dutti",
+    label: "Personal shopper’s pick",
+    title: "Gathered leather loafer",
+    description: "Massimo Dutti · Brown · 38 available",
+    price: "€100",
+    link: "https://www.massimodutti.com/fr/mocassin-en-cuir-fronce-l11573850?cS=700",
+    linkLabel: "View at Massimo Dutti",
+    note: "Personal shopper mode preview.\nPrices and size 38 availability checked on retailer sites on 23 September 2026.",
+    submitLabel: "Find my loafers",
+    others: [
+      {
+        image: "assets/alohas-aven-rift-burgundy-example.jpg",
+        label: "Alohas · 38 available",
+        title: "Aven Rift",
+        description: "Burgundy leather",
+        price: "€160",
+        link: "https://alohas.com/products/aven-rift-burgundy-leather-loafers?variant=51001372770640",
+        linkLabel: "View offer"
+      },
+      {
+        image: "assets/arket-mocassins-laques-example.jpg",
+        label: "Arket · 38 available",
+        title: "Lacquered leather loafers",
+        description: "Black",
+        price: "€189",
+        link: "https://www.arket.com/fr-fr/product/lacquered-leather-loafers-black-1317806001/",
+        linkLabel: "View offer"
+      }
+    ]
+  }
+};
+
+const demoScenarios = LANG === "en" ? demoScenariosEn : demoScenariosFr;
 
 function setDemoScenario(name) {
   const scenario = demoScenarios[name];
@@ -367,7 +469,7 @@ demoForm?.addEventListener("submit", (event) => {
   demoResult?.setAttribute("aria-busy", "true");
   if (submitButton) {
     submitButton.disabled = true;
-    submitButton.textContent = "Analyse en cours…";
+    submitButton.textContent = T.analysing;
   }
 
   const completeDemo = () => {
@@ -376,7 +478,7 @@ demoForm?.addEventListener("submit", (event) => {
     demoResult?.setAttribute("aria-busy", "false");
     if (submitButton) {
       submitButton.disabled = false;
-      submitButton.innerHTML = initialLabel || "Trouver la pièce →";
+      submitButton.innerHTML = initialLabel || `${demoScenarios.search.submitLabel} →`;
     }
   };
 
