@@ -1,5 +1,5 @@
 :root {
-  --bg: #F5F5F1; /* blanc cassé neutre */
+  --bg: #FCFCFA; /* blanc cassé très clair */
   --bg-soft: #f5f4f2;
   --text: #0a0a0a;
   --ink: #222325; /* gris anthracite très foncé pour les textes */
@@ -41,7 +41,7 @@ body {
   width: 100%;
   padding: 22px clamp(20px, 5vw, 60px);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(245, 245, 241, 0.86);
+  background: rgba(205, 220, 238, 0.96); /* powder blue #CDDCEE */
   backdrop-filter: blur(14px);
   display: grid;
   grid-template-columns: auto 1fr auto;
