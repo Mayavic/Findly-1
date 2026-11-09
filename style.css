@@ -518,6 +518,12 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.in-view { opacity: 1; transform: none; }
 
+/* ---------- BANDEAU PHOTOS ---------- */
+/* Pleine largeur d'écran, sous le paragraphe d'introduction */
+.photo-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; width: 100vw; margin: 56px 0 0 calc(50% - 50vw); }
+.photo-strip figure { margin: 0; height: clamp(300px, 38vw, 560px); overflow: hidden; background: var(--bg-soft); }
+.photo-strip img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 901px) {
   /* Le titre du Club occupe exactement la hauteur du bloc de droite */
@@ -549,6 +555,8 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
   #try-btn { width: 100%; }
 }
 @media (max-width: 560px) {
+  .photo-strip { gap: 4px; }
+  .photo-strip figure { height: 62vw; }
   .trust-line { font-size: .52rem; }
   .product-demo { width: 100vw; margin-left: calc(50% - 50vw); padding: 24px 16px; border-right: 0; border-left: 0; border-radius: 0; }
   .product-demo-head { align-items: flex-start; }
