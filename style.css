@@ -8,8 +8,10 @@
   --line: rgba(10, 10, 10, 0.14);
   --line-soft: rgba(10, 10, 10, 0.08);
   --shadow: 0 24px 70px rgba(10, 10, 10, 0.10);
-  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
-  --sans: "Manrope", "Segoe UI", sans-serif;
+  /* Duo de polices : une grotesque très grasse (titres) + une sans-serif fine et droite (textes et touches douces) */
+  --serif: "Bricolage Grotesque", "Arial Black", "Helvetica Neue", sans-serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --soft: "Inter", "Helvetica Neue", Arial, sans-serif;
   --radius: 4px;
 }
 
@@ -22,6 +24,7 @@ html, body {
 
 body {
   font-family: var(--sans);
+  font-weight: 400;
   background: var(--bg);
   color: var(--ink);
   overflow-x: hidden;
@@ -151,7 +154,7 @@ main > section:first-child { margin-top: 70px; }
   font-size: clamp(2.6rem, 7vw, 5.4rem);
   line-height: 1.02; letter-spacing: -0.02em;
 }
-.hero h1 span { display: block; font-style: italic; font-weight: 500; }
+.hero h1 span { display: block; font-family: var(--soft); font-style: normal; font-weight: 400; letter-spacing: -0.01em; }
 .tag {
   width: fit-content; margin: 0 auto; padding: 9px 18px;
   border: 1px solid var(--line); border-radius: 999px;
@@ -326,7 +329,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .logos p { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.24em; margin: 0 0 26px; }
 .logo-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 46px; }
 .logo-row span {
-  font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 1.35rem;
+  font-family: var(--soft); font-weight: 500; font-style: normal; font-size: 1.35rem;
   color: var(--ink); opacity: 0.55;
 }
 
@@ -335,7 +338,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .steps article { padding: 40px 30px; border-bottom: 1px solid var(--line); }
 .steps article + article { border-left: 1px solid var(--line); }
 .step-num {
-  font-family: var(--serif); font-size: 1.4rem; font-weight: 600; font-style: italic;
+  font-family: var(--soft); font-size: 1.4rem; font-weight: 400; font-style: normal;
   color: var(--ink);
 }
 .steps h3 { margin: 18px 0 12px; font-family: var(--serif); font-weight: 600; font-size: 1.35rem; }
@@ -344,8 +347,8 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(36px, 7vw, 110px); }
 .feature-grid article { display: flex; min-width: 0; padding: 0; flex-direction: column; }
 .feature-num {
-  display: block; margin-bottom: 24px; font-family: var(--serif); font-size: 1.1rem;
-  font-style: italic; font-weight: 600; color: var(--muted);
+  display: block; margin-bottom: 24px; font-family: var(--soft); font-size: 1.1rem;
+  font-style: normal; font-weight: 400; color: var(--muted);
 }
 .feature-grid h3 {
   min-height: 1.2em; margin: 0 0 12px; font-family: var(--serif); font-weight: 600;
@@ -358,12 +361,12 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .tech .section-head { margin-bottom: 52px; }
 .ranking-panel { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(42px, 8vw, 110px); border-top: 1px solid var(--text); }
 .ranking-intro {
-  margin: 0; padding-top: 28px; color: var(--muted); font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  margin: 0; padding-top: 28px; color: var(--muted); font-family: var(--soft); font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   line-height: 1.45;
 }
 .ranking-list { margin: 0; padding: 0; list-style: none; }
 .ranking-list li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line); }
-.ranking-list li > span { font-family: var(--serif); font-style: italic; color: var(--muted); }
+.ranking-list li > span { font-family: var(--soft); font-style: normal; color: var(--muted); }
 .ranking-list strong { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
 .ranking-list p { margin: 7px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.6; }
 
@@ -381,7 +384,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .alerts-copy > p:not(.eyebrow) { max-width: 430px; margin: 16px 0 0; color: rgba(255,255,255,.62); line-height: 1.7; }
 .alert-list { border-top: 1px solid rgba(255,255,255,.25); }
 .alert-list article { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.25); }
-.alert-list article > span { font-family: var(--serif); font-style: italic; color: rgba(255,255,255,.45); }
+.alert-list article > span { font-family: var(--soft); font-style: normal; color: rgba(255,255,255,.45); }
 .alert-list h3 { margin: 0; font-family: var(--serif); font-size: 1.08rem; font-weight: 600; }
 .alert-list p { margin: 4px 0 0; color: rgba(255,255,255,.58); font-size: .85rem; line-height: 1.55; }
 
@@ -417,7 +420,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .testi-grid blockquote {
   margin: 0; border-top: 2px solid var(--text); padding: 28px 6px 0; background: none;
 }
-.testi-grid p { margin: 0 0 20px; font-family: var(--serif); font-style: italic; font-size: 1.2rem; line-height: 1.55; }
+.testi-grid p { margin: 0 0 20px; font-family: var(--soft); font-style: normal; font-size: 1.2rem; line-height: 1.55; }
 .testi-grid footer { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; }
 
 /* ---------- FAQ ---------- */
@@ -445,7 +448,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
   letter-spacing: .22em; text-transform: uppercase;
 }
 .cta h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(2.5rem, 4.2vw, 4rem); line-height: .96; }
-.cta h2 em { font-weight: 500; }
+.cta h2 em { font-family: var(--soft); font-style: normal; font-weight: 400; }
 .cta-action {
   padding-left: clamp(10px, 2vw, 24px);
   display: flex; flex-direction: column; justify-content: center;
