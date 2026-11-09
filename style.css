@@ -2,6 +2,7 @@
   --bg: #FCFCFA; /* blanc cassé très clair */
   --bg-soft: #f5f4f2;
   --text: #0a0a0a;
+  --chocolat: #35231D; /* chocolat foncé : encadrés et bouton du Club */
   --ink: #222325; /* gris anthracite très foncé pour les textes */
   --muted: #6f6f6f;
   --line: rgba(10, 10, 10, 0.14);
@@ -103,8 +104,8 @@ nav a:hover { opacity: 1; }
 .waitlist-btn:hover { background: #fff; color: var(--ink); }
 .waitlist-btn.large { margin-top: 22px; padding: 16px 34px; font-size: 0.85rem; }
 
-.header-actions .waitlist-btn { border-color: var(--text); background: var(--text); color: #fff; }
-.header-actions .waitlist-btn:hover { background: var(--text); color: #fff; opacity: .78; }
+.header-actions .waitlist-btn { border-color: var(--chocolat); background: var(--chocolat); color: #fff; }
+.header-actions .waitlist-btn:hover { background: var(--chocolat); color: #fff; opacity: .78; }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .login-link {
@@ -370,7 +371,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .alerts {
   display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 5vw, 64px); align-items: center;
   width: min(940px, 94vw); margin-left: auto; margin-right: auto;
-  padding: clamp(30px, 4vw, 48px); border-radius: 10px; background: #090909; color: #fff;
+  padding: clamp(30px, 4vw, 48px); border-radius: 10px; background: var(--chocolat); color: #fff;
 }
 .alerts .eyebrow { color: rgba(255,255,255,.52); }
 .alerts-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 2.9rem); font-weight: 600; line-height: .98; }
@@ -434,7 +435,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 /* ---------- CTA ---------- */
 .cta {
   position: relative; display: grid; grid-template-columns: auto 1fr; overflow: hidden;
-  border: 1px solid var(--text); background: var(--text); color: #fff; border-radius: 10px; text-align: left;
+  border: 1px solid var(--chocolat); background: var(--chocolat); color: #fff; border-radius: 10px; text-align: left;
 }
 .hero .cta { width: min(940px, 94vw); margin: 84px 0 0 calc(50% - min(470px, 47vw)); }
 .cta-heading, .cta-action { padding: clamp(30px, 4vw, 48px); }
