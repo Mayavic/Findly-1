@@ -8,10 +8,11 @@
   --line: rgba(10, 10, 10, 0.14);
   --line-soft: rgba(10, 10, 10, 0.08);
   --shadow: 0 24px 70px rgba(10, 10, 10, 0.10);
-  /* Duo de polices : une grotesque très grasse (titres) + une sans-serif fine et droite (textes et touches douces) */
+  /* Titres : Bricolage Grotesque ExtraBold + touches en Newsreader Light. Textes : Avenir Next Regular */
   --serif: "Bricolage Grotesque", "Arial Black", "Helvetica Neue", sans-serif;
-  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --soft: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /* Avenir Next (Mac, iPhone) ; Nunito Sans, très proche, ailleurs */
+  --sans: "Avenir Next", "Avenir", "Nunito Sans", "Segoe UI", sans-serif;
+  --soft: "Newsreader", Georgia, "Times New Roman", serif;
   --radius: 4px;
 }
 
@@ -154,7 +155,7 @@ main > section:first-child { margin-top: 70px; }
   font-size: clamp(2.6rem, 7vw, 5.4rem);
   line-height: 1.02; letter-spacing: -0.02em;
 }
-.hero h1 span { display: block; font-family: var(--soft); font-style: normal; font-weight: 400; letter-spacing: -0.01em; }
+.hero h1 span { display: block; margin-top: .08em; font-family: var(--soft); font-style: normal; font-weight: 300; font-size: .7em; letter-spacing: -0.01em; }
 .tag {
   width: fit-content; margin: 0 auto; padding: 9px 18px;
   border: 1px solid var(--line); border-radius: 999px;
@@ -448,7 +449,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
   letter-spacing: .22em; text-transform: uppercase;
 }
 .cta h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(2.5rem, 4.2vw, 4rem); line-height: .96; }
-.cta h2 em { font-family: var(--soft); font-style: normal; font-weight: 400; }
+.cta h2 em { font-family: var(--soft); font-style: normal; font-weight: 300; }
 .cta-action {
   padding-left: clamp(10px, 2vw, 24px);
   display: flex; flex-direction: column; justify-content: center;
