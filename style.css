@@ -8,8 +8,8 @@
   --line: rgba(10, 10, 10, 0.14);
   --line-soft: rgba(10, 10, 10, 0.08);
   --shadow: 0 24px 70px rgba(10, 10, 10, 0.10);
-  /* Titres : Bricolage Grotesque ExtraBold + touches en Newsreader Light. Textes : Avenir Next Regular */
-  --serif: "Bricolage Grotesque", "Arial Black", "Helvetica Neue", sans-serif;
+  /* Titres : Rubik ExtraBold + touches en Newsreader Light. Textes : Avenir Next Regular */
+  --serif: "Rubik", "Arial Black", "Helvetica Neue", sans-serif;
   /* Avenir Next (Mac, iPhone) ; Nunito Sans, très proche, ailleurs */
   --sans: "Avenir Next", "Avenir", "Nunito Sans", "Segoe UI", sans-serif;
   --soft: "Newsreader", Georgia, "Times New Roman", serif;
@@ -381,7 +381,7 @@ textarea:focus { outline: none; border-color: var(--text); background: #fff; }
 .alerts-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 2.9rem); font-weight: 600; line-height: .98; }
 .alerts-copy h2 em { font-weight: 500; }
 .alerts-copy h2 { text-wrap: balance; }
-.alerts-copy h2 span { display: block; }
+.alerts-copy h2 span { display: block; font-family: var(--soft); font-weight: 300; }
 .alerts-copy > p:not(.eyebrow) { max-width: 430px; margin: 16px 0 0; color: rgba(255,255,255,.62); line-height: 1.7; }
 .alert-list { border-top: 1px solid rgba(255,255,255,.25); }
 .alert-list article { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.25); }
@@ -521,12 +521,23 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
 /* ---------- REVEAL ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.in-view { opacity: 1; transform: none; }
+/* Les 3 façons glissent depuis le bord droit de l'écran, l'une après l'autre */
+.reveal-right article { opacity: 0; transform: translateX(75vw); transition: transform .6s cubic-bezier(.16, .84, .3, 1), opacity .3s ease; }
+.reveal-right article:nth-child(2) { transition-delay: .15s; }
+.reveal-right article:nth-child(3) { transition-delay: .3s; }
+.reveal-right.in-view article { opacity: 1; transform: none; }
 
 /* ---------- BANDEAU PHOTOS ---------- */
 /* Pleine largeur d'écran, sous le paragraphe d'introduction */
 .photo-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; width: 100vw; margin: 56px 0 0 calc(50% - 50vw); }
 .photo-strip figure { margin: 0; height: clamp(300px, 38vw, 560px); overflow: hidden; background: var(--bg-soft); }
 .photo-strip img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* ---------- TITRES (Rubik) : lettres serrées ---------- */
+.hero h1, .section-head h2, .cta h2, .alerts-copy h2, .product-demo-head h2, .story-text h2 { letter-spacing: -0.055em; }
+.demo-product-info h3, .demo-price strong, .hero-stats strong, .steps h3, .feature-grid h3, .ranking-list strong, .alert-list h3, .faq-list summary, .modal h2, .auth-card h1, .admin-state h1 { letter-spacing: -0.035em; }
+/* les touches en Newsreader gardent leur espacement normal */
+.hero h1 span, .cta h2 em, .alerts-copy h2 span { letter-spacing: -0.01em; font-variation-settings: normal; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 901px) {
@@ -583,6 +594,7 @@ footer { width: min(1180px, 90vw); margin: 110px auto 60px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal-right article { opacity: 1; transform: none; transition: none; }
   .demo-result { transition: none; }
 }
 

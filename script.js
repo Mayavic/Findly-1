@@ -125,6 +125,22 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("in-view"));
 }
 
+/* Glissement depuis la droite : déclenché quand le bloc est bien visible à l'écran */
+const slideEls = document.querySelectorAll(".reveal-right");
+if ("IntersectionObserver" in window) {
+  const slideIo = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        slideIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  slideEls.forEach((el) => slideIo.observe(el));
+} else {
+  slideEls.forEach((el) => el.classList.add("in-view"));
+}
+
 /* ============ PRÉFÉRENCES ============ */
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
